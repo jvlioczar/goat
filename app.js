@@ -1,0 +1,488 @@
+(() => {
+  'use strict';
+
+  // ---------- textos (pt-BR e en; o idioma vem do <html lang>) ----------
+  const LANG = /^en/i.test(document.documentElement.lang) ? 'en' : 'pt';
+  const STR = {
+    pt: {
+      locale: 'pt-BR', srcPage: 'fontes.html',
+      fam: { coletivos: 'Coletivos', raquete: 'Raquete', atletismo: 'Atletismo', aquaticos: 'Aquáticos', combate: 'Combate', forca: 'Força', resistencia: 'Resistência', precisao: 'Precisão', acrobacia: 'Acrobacia & arte', motor: 'Motor', radicais: 'Radicais & ciclismo', inverno: 'Inverno', paralimpicos: 'Paralímpicos', mente: 'Mente', esports: 'eSports' },
+      famCount: 'modalidades', all: 'Todas as famílias', allCountries: 'Todos os países',
+      empty: ['Nada encontrado', 'Tente outro termo ou limpe os filtros.', 'Limpar filtros'],
+      for: 'para', inTotal: 'no total', inList: 'na lista',
+      src: ['fonte', 'fontes'], srcGeneral: 'Pesquisa geral', close: 'Fechar',
+      why: ['Por que é o GOAT', 'Por que são os GOATs'], checkLabel: 'Checagem', srcLabel: 'Fontes', checkPrefix: 'Checagem ',
+      navAria: 'Navegar entre modalidades', themeOn: ['Ativar modo claro', 'Modo claro'], themeOff: ['Ativar modo escuro', 'Modo escuro'],
+      gender: { M: 'Masculino', F: 'Feminino', X: 'Aberto' },
+      tiers: {
+        goats: ['GOAT', 'GOATs', 'É majoritariamente considerado o melhor do seu esporte, com destaque internacional, recordes e premiações de nível mundial, aparecendo no topo de rankings com grande frequência.'],
+        legends: ['Lenda', 'Lendas', 'É considerado o melhor do seu esporte por um número considerável de pessoas e aparece no topo dos rankings com razoável frequência.'],
+        stars: ['Estrela', 'Estrelas', 'É considerado o melhor por uma pequena minoria; raramente lidera listas, mas costuma figurar no top 10.'],
+        greats: ['Grande nome', 'Outros grandes nomes', 'Pode aparecer como o melhor em alguma lista, mas é mais comum figurar no top 20.'],
+        prospects: ['Promessa', 'Promessas', 'Jovem com grande potencial de se tornar GOAT ou lenda, já competindo no nível dos consagrados.'],
+      },
+      check: { 0: 'Sem pesquisa prévia', 1: 'Checagem baixa', 2: 'Checagem média', 3: 'Checagem alta' },
+      count: { sports: ['modalidade', 'modalidades'], athletes: ['atleta', 'atletas'], countries: ['país', 'países'] },
+      countryAny: { sports: 'País do GOAT: todos', athletes: 'Todos os países', countries: 'Todos os países' },
+      noGoat: 'Sem consenso ainda',
+      try: 'Experimente:',
+    },
+    en: {
+      locale: 'en', srcPage: 'sources.html',
+      fam: { coletivos: 'Team sports', raquete: 'Racket', atletismo: 'Athletics', aquaticos: 'Water sports', combate: 'Combat', forca: 'Strength', resistencia: 'Endurance', precisao: 'Precision', acrobacia: 'Acrobatics & art', motor: 'Motorsport', radicais: 'Action & cycling', inverno: 'Winter', paralimpicos: 'Paralympic', mente: 'Mind', esports: 'Esports' },
+      famCount: 'sports', all: 'All families', allCountries: 'All countries',
+      empty: ['Nothing found', 'Try another term or clear the filters.', 'Clear filters'],
+      for: 'for', inTotal: 'in total', inList: 'listed',
+      src: ['source', 'sources'], srcGeneral: 'General research', close: 'Close',
+      why: ['Why they are the GOAT', 'Why they are the GOATs'], checkLabel: 'Fact-check', srcLabel: 'Sources', checkPrefix: 'Fact-check: ',
+      navAria: 'Browse sports', themeOn: ['Switch to light mode', 'Light mode'], themeOff: ['Switch to dark mode', 'Dark mode'],
+      gender: { M: 'Men', F: 'Women', X: 'Open' },
+      tiers: {
+        goats: ['GOAT', 'GOATs', 'Widely considered the best in their sport, with international standing, records and world-class honors, appearing at the top of rankings very often.'],
+        legends: ['Legend', 'Legends', 'Considered the best in their sport by a sizable number of people, and fairly often at the top of rankings.'],
+        stars: ['Star', 'Stars', 'Considered the best by a small minority; rarely tops lists, but usually makes the top 10.'],
+        greats: ['Great', 'Other greats', 'May appear as the best on some list, but more commonly makes the top 20.'],
+        prospects: ['Prospect', 'Prospects', 'Young athlete with great potential to become a GOAT or legend, already competing at the level of the established names.'],
+      },
+      check: { 0: 'No prior research', 1: 'Fact-check: low', 2: 'Fact-check: medium', 3: 'Fact-check: high' },
+      count: { sports: ['sport', 'sports'], athletes: ['athlete', 'athletes'], countries: ['country', 'countries'] },
+      countryAny: { sports: 'GOAT country: all', athletes: 'All countries', countries: 'All countries' },
+      noGoat: 'No consensus yet',
+      try: 'Try:',
+    },
+  };
+  const T = STR[LANG];
+  const nf = new Intl.NumberFormat(T.locale);
+  const regionNames = (() => { try { return new Intl.DisplayNames([T.locale], { type: 'region' }); } catch { return null; } })();
+  const cname = (c) => { try { return (regionNames && regionNames.of(c)) || c; } catch { return c; } };
+
+  // ---------- ícones ----------
+  const I = {
+    coletivos: '<circle cx="12" cy="12" r="9"/><path d="m12 7.5 4 2.9-1.5 4.6h-5L8 10.4z"/><path d="M12 3v4.5M16 10.4l4.3-1.4M14.5 15l2.6 3.7M9.5 15l-2.6 3.7M8 10.4 3.7 9"/>',
+    raquete: '<ellipse cx="9.5" cy="9.5" rx="5.5" ry="6.5" transform="rotate(-45 9.5 9.5)"/><path d="m13.6 13.6 6.4 6.4M6 9l4 4M9 6l4 4"/><circle cx="19" cy="5" r="1.8"/>',
+    atletismo: '<circle cx="12" cy="13.5" r="7.5"/><path d="M12 10v3.5l2.5 2M10 2.5h4M12 2.5V6M18.5 6.5 20 5"/>',
+    aquaticos: '<path d="M2 7c2 0 2-1.6 4-1.6S8 7 10 7s2-1.6 4-1.6S16 7 18 7s2-1.6 4-1.6M2 12.5c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6 2-1.6 4-1.6M2 18c2 0 2-1.6 4-1.6s2 1.6 4 1.6 2-1.6 4-1.6 2 1.6 4 1.6 2-1.6 4-1.6"/>',
+    combate: '<path d="M7.5 20.5v-4.2C5.4 15.2 4 13 4 10a6 6 0 0 1 6-6h4a5 5 0 0 1 5 5v2.5a4.5 4.5 0 0 1-4.5 4.5h-.5v4.5z"/><path d="M7.5 20.5H15M9 9.5h5a2 2 0 0 1 0 4h-2"/>',
+    forca: '<path d="M6.5 6v12M17.5 6v12M3 9v6M21 9v6M6.5 12h11"/>',
+    precisao: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.3"/>',
+    acrobacia: '<path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/><path d="M19 3v3M17.5 4.5h3"/>',
+    motor: '<path d="M3.5 17a8.5 8.5 0 1 1 17 0"/><path d="m12 17 4.2-5.2"/><circle cx="12" cy="17" r="1.4"/><path d="M6.6 12.4 5.3 11.6M12 8.5V7"/>',
+    radicais: '<path d="M2.5 10.5h19c0 1.9-1.6 3.5-3.5 3.5H6c-1.9 0-3.5-1.6-3.5-3.5z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/>',
+    inverno: '<path d="M12 2.5v19M3.8 7.25l16.4 9.5M3.8 16.75l16.4-9.5M9.3 4.3 12 6l2.7-1.7M9.3 19.7 12 18l2.7 1.7"/>',
+    mente: '<circle cx="12" cy="5.8" r="2.8"/><path d="M9.6 10h4.8l-1 5.5h-2.8zM6.5 20.5h11l-1-4.5h-9z"/>',
+    esports: '<rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.3" r="1" fill="currentColor"/><circle cx="17.8" cy="13.6" r="1" fill="currentColor"/>',
+    paralimpicos: '<circle cx="12.5" cy="4.5" r="2"/><path d="M12 8v5h5l2 5"/><path d="M8.5 10.5a6 6 0 1 0 8.2 7.8"/>',
+    resistencia: '<path d="M2.5 12h4l2.5-6 4.5 12 2.5-6h5.5"/>',
+    link: '<path d="M14 5h5v5M19 5l-8 8M17 14v4a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5 18V8.5A1.5 1.5 0 0 1 6.5 7H10"/>',
+    crown: '<path d="m3 8 4.5 4L12 5l4.5 7L21 8l-2 11H5z"/>',
+    star: '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+    sparkle: '<path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5M16 4.8a3.5 3.5 0 0 1 0 6.4M18.5 14.8c1.7.8 2.7 2.5 3 5.2"/>',
+    sprout: '<path d="M12 21v-9M12 12c0-4.2 3-7 8-7 0 5-3 7-8 7zM12 14.5C12 11 9.8 9 5.5 9c0 4 2.2 5.5 6.5 5.5z"/>',
+    x: '<path d="M6 6l12 12M18 6 6 18"/>',
+    arrowL: '<path d="M15 18l-6-6 6-6"/>',
+    arrowR: '<path d="m9 18 6-6-6-6"/>',
+  };
+  const icon = (k, cls = 'ico') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${I[k] || ''}</svg>`;
+
+  const FAMILIES = Object.entries(T.fam).map(([k, label]) => ({ k, label, color: `var(--f-${k})` }));
+  const FAM = Object.fromEntries(FAMILIES.map((f) => [f.k, f]));
+  const TIER_KEYS = ['goats', 'legends', 'stars', 'greats', 'prospects'];
+  const TIER_ICON = { goats: 'crown', legends: 'star', stars: 'sparkle', greats: 'users', prospects: 'sprout' };
+
+  // ---------- dados ----------
+  const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // na versão em inglês, nomes, rótulos e explicações vêm de data/en.js
+  const EN = LANG === 'en' ? (window.GOAT_EN || {}) : null;
+  const localize = (s) => {
+    if (!EN) return s;
+    const t = EN.sports && EN.sports[s.id] || {};
+    return { ...s, sport: t.s || (EN.names && EN.names[s.sport]) || s.sport, label: t.l !== undefined ? t.l : (EN.labels && EN.labels[s.label]) || s.label, why: t.w || s.why, whyLang: t.w ? 'en' : 'pt-BR' };
+  };
+  const SPORTS = window.GOAT_DATA.sports.map(localize).map((s, i) => {
+    const people = TIER_KEYS.flatMap((t) => s[t].map((p) => ({ ...p, tier: t })));
+    const tag = s.label || T.gender[s.gender];
+    const full = s.gender === 'X' ? s.sport + (s.label ? ` (${s.label})` : '')
+      : LANG === 'en' ? (s.label ? `${s.sport} (${s.label})` : `${s.gender === 'M' ? 'Men’s' : 'Women’s'} ${s.sport}`)
+      : `${s.sport} ${s.label ? s.label : T.gender[s.gender].toLowerCase()}`;
+    return {
+      ...s, i, people, tag, full,
+      size: people.length,
+      text: norm([s.sport, s.label, tag, FAM[s.family].label].join(' ')),
+    };
+  });
+  const BY_ID = Object.fromEntries(SPORTS.map((s) => [s.id, s]));
+
+  const ATHLETES = (() => {
+    const m = new Map();
+    SPORTS.forEach((s) => s.people.forEach((p) => {
+      const k = norm(p.n).replace(/[^a-z0-9]/g, '');
+      if (!m.has(k)) m.set(k, { name: p.n, c: new Set(), entries: [] });
+      const a = m.get(k);
+      p.c.forEach((c) => a.c.add(c));
+      a.entries.push({ s, tier: p.tier });
+    }));
+    return [...m.values()].map((a) => {
+      a.c = [...a.c];
+      a.entries.sort((x, y) => TIER_KEYS.indexOf(x.tier) - TIER_KEYS.indexOf(y.tier));
+      a.best = a.entries[0].tier;
+      a.rank = TIER_KEYS.indexOf(a.best);
+      a.key = norm(a.name);
+      a.text = norm([a.name, ...a.c.map(cname), ...a.entries.map((e) => e.s.sport)].join(' '));
+      return a;
+    });
+  })();
+  const COUNTRIES = [...new Set(ATHLETES.flatMap((a) => a.c))]
+    .map((c) => ({ c, name: cname(c) }))
+    .sort((a, b) => a.name.localeCompare(b.name, T.locale));
+
+  // ---------- estado ----------
+  const DEF = { view: 'sports', q: '', fam: '', g: '', country: '', tier: '', check: '', sort: 'pop' };
+  const state = { ...DEF, limit: 60 };
+  const params = new URLSearchParams(location.search);
+  Object.keys(DEF).forEach((k) => { if (params.has(k)) state[k] = params.get(k); });
+
+  const $ = (s) => document.querySelector(s);
+  const el = {
+    q: $('#q'), q2: $('#q2'), results: $('#results'), count: $('#count'), fam: $('#fam'), families: $('#families'),
+    country: $('#country'), tier: $('#tier'), check: $('#check'), sort: $('#sort'), more: $('#more'), reset: $('#reset'),
+    drawer: $('#drawer'), scrim: $('#scrim'),
+  };
+
+  const flags = (cs) => cs && cs.length ? `<span class="flags">${cs.map((c) => `<span class="fi fi-${c.toLowerCase()}" title="${esc(cname(c))}" role="img" aria-label="${esc(cname(c))}"></span>`).join('')}</span>` : '';
+  const meter = (v) => `<span class="meter" data-v="${v}" title="${T.check[v]}" aria-label="${T.check[v]}"><i></i><i></i><i></i></span>`;
+  const plural = (n, [one, many]) => `<strong>${nf.format(n)}</strong> ${n === 1 ? one : many}`;
+  const tokens = () => norm(state.q).split(/\s+/).filter(Boolean);
+
+  // ---------- filtros ----------
+  function personHits(s, toks) {
+    if (!toks.length) return [];
+    return s.people.filter((p) => {
+      const t = norm(p.n + ' ' + p.c.map(cname).join(' '));
+      return toks.every((k) => t.includes(k) || s.text.includes(k));
+    }).filter((p) => toks.some((k) => norm(p.n + ' ' + p.c.map(cname).join(' ')).includes(k)));
+  }
+  // filtro padrão: modalidades mais populares do mundo, em ordem de popularidade
+  const POPULAR = [
+    'futebol-masculino', 'futebol-feminino', 'criquete-masculino', 'basquete-masculino', 'basquete-feminino',
+    'tenis-masculino', 'tenis-feminino', 'volei-masculino', 'volei-feminino', 'formula-1',
+    'hoquei-no-gelo-masculino', 'futebol-americano-masculino', 'beisebol-masculino', 'rugby-masculino',
+    'natacao-masculino', 'natacao-feminino', 'corrida-de-velocidade-masculino', 'corrida-de-velocidade-feminino',
+    'golfe-masculino', 'boxe-masculino', 'mma-masculino', 'ginastica-artistica-feminino', 'ciclismo-masculino',
+    'tenis-de-mesa-masculino', 'badminton-masculino', 'handebol-masculino', 'motogp', 'xadrez-masculino',
+    'league-of-legends-masculino', 'counter-strike-masculino',
+  ];
+  const POP_RANK = Object.fromEntries(POPULAR.map((id, i) => [id, i]));
+  const popActive = () => state.sort === 'pop' && !state.fam && !tokens().length && state.view === 'sports';
+  function filterSports() {
+    const toks = tokens();
+    const pop = popActive();
+    let list = SPORTS.filter((s) =>
+      (!pop || s.id in POP_RANK) &&
+      (!state.fam || s.family === state.fam) &&
+      (!state.g || s.gender === state.g) &&
+      (!state.check || String(s.status) === state.check) &&
+      (!state.country || s.goats.some((p) => p.c.includes(state.country))));
+    if (toks.length) {
+      list = list.map((s) => ({ s, hits: personHits(s, toks) }))
+        .filter(({ s, hits }) => hits.length || toks.every((k) => s.text.includes(k)))
+        .map(({ s, hits }) => Object.assign(Object.create(s), { hits }));
+    }
+    const az = (a, b) => a.sport.localeCompare(b.sport, T.locale) || a.full.localeCompare(b.full, T.locale);
+    const rank = (s) => (s.id in POP_RANK ? POP_RANK[s.id] : Infinity);
+    const by = {
+      pop: (a, b) => rank(a) - rank(b) || az(a, b),
+      n: (a, b) => a.i - b.i,
+      az,
+      size: (a, b) => b.size - a.size || a.i - b.i,
+      check: (a, b) => b.status - a.status || b.sources - a.sources || a.i - b.i,
+    }[state.sort] || az;
+    return list.sort(by);
+  }
+  function athleteEntries(a) {
+    return a.entries.filter((e) =>
+      (!state.fam || e.s.family === state.fam) &&
+      (!state.g || e.s.gender === state.g) &&
+      (!state.tier || e.tier === state.tier));
+  }
+  function filterAthletes() {
+    const toks = tokens();
+    return ATHLETES.map((a) => {
+      const entries = athleteEntries(a);
+      return entries.length ? { a, entries } : null;
+    }).filter((x) => x &&
+      (!state.country || x.a.c.includes(state.country)) &&
+      toks.every((k) => x.a.text.includes(k)))
+      .sort((x, y) => TIER_KEYS.indexOf(x.entries[0].tier) - TIER_KEYS.indexOf(y.entries[0].tier) ||
+        y.entries.length - x.entries.length || x.a.name.localeCompare(y.a.name, T.locale));
+  }
+  function countryStats() {
+    const toks = tokens();
+    const m = new Map();
+    ATHLETES.forEach((a) => {
+      const entries = athleteEntries(a);
+      if (!entries.length) return;
+      a.c.forEach((c) => {
+        if (!m.has(c)) m.set(c, { c, name: cname(c), t: { goats: 0, legends: 0, stars: 0, greats: 0, prospects: 0 }, total: 0 });
+        const r = m.get(c);
+        entries.forEach((e) => { r.t[e.tier]++; r.total++; });
+      });
+    });
+    return [...m.values()].filter((r) => toks.every((k) => norm(r.name + ' ' + r.c).includes(k)))
+      .sort((a, b) => b.t.goats - a.t.goats || b.t.legends - a.t.legends || b.total - a.total);
+  }
+
+  // ---------- render ----------
+  function sportCard(s) {
+    const many = s.goats.length > 2;
+    const goats = s.goats.length
+      ? `<ul class="goat-names${many ? ' many' : ''}">${s.goats.map((p) => `<li>${esc(p.n)} ${flags(p.c)}</li>`).join('')}</ul>`
+      : `<p class="open-q">${T.noGoat}</p>`;
+    const counts = ['legends', 'stars'].filter((t) => s[t].length).map((t) => `${s[t].length} ${T.tiers[t][s[t].length === 1 ? 0 : 1].toLowerCase()}`);
+    const rest = s.greats.length + s.prospects.length;
+    if (rest) counts.push(`+${rest}`);
+    const hits = (s.hits || []).filter((p) => p.tier !== 'goats').slice(0, 2);
+    const match = hits.length ? `<p class="match">${hits.map((p) => `<b>${esc(p.n)}</b> · ${T.tiers[p.tier][0]}`).join('<br>')}</p>` : '';
+    return `<button class="card" style="--fc:${FAM[s.family].color}" data-open="${s.id}">
+      <span class="card-top">
+        <span class="tile">${icon(s.family)}</span>
+        <span class="card-title"><h3>${esc(s.sport)}</h3><p>${FAM[s.family].label}</p></span>
+        <span class="gtag">${esc(s.tag)}</span>
+      </span>
+      <span class="goat-label">${icon('crown')} ${s.goats.length > 1 ? 'GOATs' : 'GOAT'}</span>
+      ${goats}${match}
+      <span class="card-foot"><span class="counts">${counts.join(' · ') || '—'}</span>${meter(s.status)}</span>
+    </button>`;
+  }
+  function athleteRow({ a, entries }) {
+    const e = entries[0];
+    const extra = entries.length > 1 ? ` · +${entries.length - 1}` : '';
+    return `<button class="arow" data-open="${e.s.id}" data-hit="${esc(a.name)}">
+      <span class="tile" style="--fc:${FAM[e.s.family].color}">${icon(e.s.family)}</span>
+      <span class="who"><strong>${esc(a.name)} ${flags(a.c)}</strong><span>${esc(entries.map((x) => x.s.full).join(' · '))}</span></span>
+      <span class="tier-badge ${e.tier}" style="--tc:var(--t-${e.tier})">${T.tiers[e.tier][0]}${extra}</span>
+    </button>`;
+  }
+  function countryRow(r, i, max) {
+    const seg = TIER_KEYS.map((t) => r.t[t] ? `<i style="width:${(r.t[t] / max) * 100}%;background:var(--t-${t})" title="${T.tiers[t][1]}: ${r.t[t]}"></i>` : '').join('');
+    const sub = TIER_KEYS.slice(1, 3).filter((t) => r.t[t]).map((t) => `${r.t[t]} ${T.tiers[t][r.t[t] === 1 ? 0 : 1].toLowerCase()}`).join(' · ') + ` · ${r.total} ${T.inTotal}`;
+    return `<button class="crow" data-country="${r.c}">
+      <span class="rank">${i + 1}</span>${flags([r.c])}
+      <span class="cname"><strong>${esc(r.name)}</strong><span class="bar">${seg}</span><small>${sub || `${r.total} ${T.inList}`}</small></span>
+      <span class="cnum"><b>${r.t.goats}</b>${r.t.goats === 1 ? 'GOAT' : 'GOATs'}</span>
+    </button>`;
+  }
+
+  function render() {
+    const v = state.view;
+    let html = '', n = 0, shown = 0, kind = v;
+    if (v === 'sports') {
+      const list = filterSports(); n = list.length;
+      html = `<div class="grid">${list.map(sportCard).join('')}</div>`; shown = n;
+    } else if (v === 'athletes') {
+      const list = filterAthletes(); n = list.length;
+      const page = list.slice(0, state.limit); shown = page.length;
+      html = `<div class="alist">${page.map(athleteRow).join('')}</div>`;
+    } else {
+      const list = countryStats(); n = list.length;
+      const max = Math.max(1, ...list.map((r) => r.total));
+      html = `<p class="legend">${TIER_KEYS.map((t) => `<span><i style="background:var(--t-${t})"></i>${T.tiers[t][1]}</span>`).join('')}</p>
+        <div class="clist">${list.map((r, i) => countryRow(r, i, max)).join('')}</div>`;
+      shown = n;
+    }
+    if (!n) {
+      html = `<div class="empty"><h3>${T.empty[0]}</h3><p>${T.empty[1]}</p><button class="btn ghost" data-reset>${T.empty[2]}</button></div>`;
+    }
+    el.results.innerHTML = html;
+    el.count.innerHTML = plural(n, T.count[kind]) + (state.q ? ` ${T.for} “${esc(state.q)}”` : '');
+    el.more.hidden = !(v === 'athletes' && shown < n);
+    syncControls();
+    persist();
+  }
+
+  function syncControls() {
+    document.querySelectorAll('#view button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
+    document.querySelectorAll('#gender button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.g === state.g)));
+    document.querySelectorAll('[data-fam]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.fam === state.fam)));
+    const fam = FAMILIES.find((f) => f.k === state.fam);
+    el.fam.querySelector('.lbl').textContent = fam ? fam.label : T.all;
+    el.fam.style.setProperty('--fc', fam ? fam.color : '');
+    el.fam.classList.toggle('active', !!fam);
+    el.country.value = state.country; el.tier.value = state.tier; el.check.value = state.check; el.sort.value = state.sort;
+    el.country.options[0].textContent = T.countryAny[state.view];
+    [el.country, el.tier, el.check].forEach((s) => s.classList.toggle('active', !!s.value));
+    $('#tier-wrap').hidden = state.view !== 'athletes';
+    $('#check-wrap').hidden = state.view !== 'sports';
+    $('#sort-wrap').hidden = state.view !== 'sports';
+    $('#country').parentElement.hidden = state.view === 'countries';
+    if (el.q.value !== state.q) el.q.value = state.q;
+    if (el.q2.value !== state.q) el.q2.value = state.q;
+    const dirty = ['q', 'fam', 'g', 'country', 'tier', 'check'].some((k) => state[k]);
+    el.reset.hidden = !dirty;
+  }
+  function persist() {
+    const p = new URLSearchParams();
+    Object.keys(DEF).forEach((k) => { if (state[k] && state[k] !== DEF[k]) p.set(k, state[k]); });
+    const qs = p.toString();
+    history.replaceState(null, '', (qs ? '?' + qs : location.pathname) + location.hash);
+  }
+  function set(patch) { Object.assign(state, patch, { limit: 60 }); render(); }
+
+  // ---------- drawer ----------
+  let lastFocus = null, currentList = [];
+  function openSport(id, hit) {
+    const s = BY_ID[id]; if (!s) return;
+    currentList = state.view === 'sports' ? filterSports().map((x) => x.id) : SPORTS.map((x) => x.id);
+    if (!currentList.includes(id)) currentList = SPORTS.map((x) => x.id);
+    const pos = currentList.indexOf(id);
+    const prev = BY_ID[currentList[(pos - 1 + currentList.length) % currentList.length]];
+    const next = BY_ID[currentList[(pos + 1) % currentList.length]];
+    const toks = tokens();
+    const isHit = (p) => (hit && p.n === hit) || (toks.length && toks.every((k) => norm(p.n).includes(k)));
+    const goats = s.goats.length ? s.goats.map((p) => `<div class="d-goat"><span class="crown">${icon('crown')}</span><div><small>GOAT</small><strong>${esc(p.n)}</strong></div>${flags(p.c)}</div>`).join('')
+      : `<div class="d-goat"><span class="crown">?</span><div><small>GOAT</small><strong>${T.noGoat}</strong></div></div>`;
+    const tiers = ['legends', 'stars', 'greats', 'prospects'].filter((t) => s[t].length).map((t) => `
+      <section class="d-sec" style="--tc:var(--t-${t})"><h4><span class="pip"></span>${T.tiers[t][1]} <em>${s[t].length}</em></h4>
+      <div class="people">${s[t].map((p) => `<span class="person${isHit(p) ? ' hit' : ''}">${flags(p.c)}${esc(p.n)}</span>`).join('')}</div></section>`).join('');
+    const nLinks = (s.links || []).length;
+    const src = nLinks ? `<a class="src-link" href="${T.srcPage}#${s.id}">${nLinks} ${T.src[nLinks === 1 ? 0 : 1]} ${icon('arrowR')}</a>`
+      : `<a class="src-link" href="${T.srcPage}#${s.id}">${T.srcGeneral} ${icon('arrowR')}</a>`;
+    el.drawer.style.setProperty('--fc', FAM[s.family].color);
+    el.drawer.innerHTML = `
+      <header class="d-head">
+        ${icon(s.family, 'ico fi-ico')}
+        <button class="d-close" data-close aria-label="${T.close}">${icon('x')}</button>
+        <p class="d-kicker">${FAM[s.family].label} · ${esc(s.tag)}</p>
+        <h2 id="d-title">${esc(s.sport)}</h2>
+        <div class="d-goats">${goats}</div>
+      </header>
+      <div class="d-body">
+        ${s.why ? `<section class="d-sec"><h4>${T.why[s.goats.length > 1 ? 1 : 0]}</h4><p class="d-why"${s.whyLang && s.whyLang !== T.locale ? ` lang="${s.whyLang}"` : ''}>${esc(s.why)}</p></section>` : ''}
+        ${tiers}
+        <section class="d-sec"><div class="facts">
+          <div class="fact"><small>${T.checkLabel}</small><strong>${meter(s.status)} ${T.check[s.status].replace(T.checkPrefix, '')}</strong></div>
+          <div class="fact"><small>${T.srcLabel}</small><strong>${src}</strong></div>
+        </div></section>
+        <nav class="d-nav" aria-label="${T.navAria}">
+          <button data-open="${prev.id}">${icon('arrowL')} ${esc(prev.full)}</button>
+          <button data-open="${next.id}">${esc(next.full)} ${icon('arrowR')}</button>
+        </nav>
+      </div>`;
+    if (el.drawer.hidden) lastFocus = document.activeElement;
+    el.drawer.hidden = false; el.scrim.hidden = false; document.body.classList.add('locked');
+    el.drawer.scrollTop = 0;
+    el.drawer.querySelector('.d-close').focus({ preventScroll: true });
+    if (location.hash !== '#m/' + id) history.replaceState(null, '', location.pathname + location.search + '#m/' + id);
+  }
+  function closeDrawer() {
+    if (el.drawer.hidden) return;
+    el.drawer.hidden = true; el.scrim.hidden = true; document.body.classList.remove('locked');
+    history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
+
+  // ---------- montagem estática ----------
+  function mount() {
+    const count = (f) => SPORTS.filter((s) => s.family === f).length;
+    el.families.innerHTML = FAMILIES.map((f) => `<button class="fam" style="--fc:${f.color}" data-fam="${f.k}" aria-pressed="false">
+      ${icon(f.k, 'ico fi-ico')}<strong>${f.label}</strong><small>${count(f.k)} ${T.famCount}</small></button>`).join('');
+    $('#fam-menu').innerHTML = `<button type="button" class="dd-opt" data-fam=""><span class="dot"></span>${T.all}<small>${SPORTS.length}</small></button>` +
+      FAMILIES.map((f) => `<button type="button" class="dd-opt" style="--fc:${f.color}" data-fam="${f.k}"><span class="dot"></span>${f.label}<small>${count(f.k)}</small></button>`).join('');
+    el.country.innerHTML = `<option value="">${T.allCountries}</option>` + COUNTRIES.map((c) => `<option value="${c.c}">${esc(c.name)}</option>`).join('');
+    $('#quick').innerHTML = `<span>${T.try}</span>` + ['Messi', 'Marta', 'Michael Phelps', 'Usain Bolt', 'Simone Biles', 'Kelly Slater', 'Serena Williams']
+      .map((q) => `<button type="button" data-q="${q}">${q}</button>`).join('');
+    $('#stat-sports').textContent = nf.format(SPORTS.length);
+    $('#stat-athletes').textContent = nf.format(ATHLETES.length);
+    $('#stat-countries').textContent = nf.format(COUNTRIES.length);
+    $('#tiers-list').innerHTML = TIER_KEYS.map((t) => `<li style="--tc:var(--t-${t})"><span class="tile${t === 'goats' ? ' gold' : ''}">${icon(TIER_ICON[t])}</span>
+      <div><strong>${T.tiers[t][1]}</strong><p>${T.tiers[t][2]}</p></div></li>`).join('');
+  }
+
+  // ---------- eventos ----------
+  let qTimer;
+  const onQ = (e) => { clearTimeout(qTimer); const v = e.target.value; qTimer = setTimeout(() => set({ q: v.trim() }), 120); };
+  el.q.addEventListener('input', onQ);
+  el.q2.addEventListener('input', onQ);
+  el.q.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); $('#explorar').scrollIntoView(); } });
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-open],[data-fam],[data-view],[data-g],[data-country],[data-q],[data-close],[data-reset]');
+    if (!t) return;
+    if (t.dataset.close !== undefined) return closeDrawer();
+    if (t.dataset.reset !== undefined) return set({ ...DEF, view: state.view, sort: state.sort });
+    if (t.dataset.open) return openSport(t.dataset.open, t.dataset.hit);
+    if (t.dataset.view) return set({ view: t.dataset.view });
+    if (t.dataset.g !== undefined) return set({ g: t.dataset.g });
+    if (t.dataset.country) { set({ country: t.dataset.country, view: 'athletes', q: '' }); return $('#explorar').scrollIntoView(); }
+    if (t.dataset.q) { set({ q: t.dataset.q }); return $('#explorar').scrollIntoView(); }
+    if (t.dataset.fam !== undefined) {
+      const fam = t.classList.contains('fam') && state.fam === t.dataset.fam ? '' : t.dataset.fam;
+      setFam(fam);
+      if (t.classList.contains('fam')) $('#explorar').scrollIntoView();
+    }
+  });
+  const setFam = (fam) => set({ fam, sort: fam && state.sort === 'pop' ? 'az' : state.sort });
+  const famMenu = (open) => { $('#fam-menu').hidden = !open; el.fam.setAttribute('aria-expanded', String(open)); };
+  el.fam.addEventListener('click', (e) => { e.stopPropagation(); famMenu($('#fam-menu').hidden); });
+  document.addEventListener('click', () => famMenu(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') famMenu(false); });
+  el.scrim.addEventListener('click', closeDrawer);
+  el.country.addEventListener('change', () => set({ country: el.country.value }));
+  el.tier.addEventListener('change', () => set({ tier: el.tier.value }));
+  el.check.addEventListener('change', () => set({ check: el.check.value }));
+  el.sort.addEventListener('change', () => set({ sort: el.sort.value }));
+  el.reset.addEventListener('click', () => set({ ...DEF, view: state.view, sort: state.sort }));
+  el.more.addEventListener('click', () => { state.limit += 60; render(); });
+  $('#random').addEventListener('click', () => {
+    const pool = (state.view === 'sports' ? filterSports() : SPORTS).filter((s) => s.goats.length);
+    const s = pool[Math.floor(Math.random() * pool.length)] || SPORTS[0];
+    openSport(s.id);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') return closeDrawer();
+    if (!el.drawer.hidden && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+      const b = el.drawer.querySelectorAll('.d-nav button')[e.key === 'ArrowLeft' ? 0 : 1];
+      if (b) b.click();
+      return;
+    }
+    if (e.key === '/' && !/input|select|textarea/i.test(document.activeElement.tagName) && el.drawer.hidden) {
+      e.preventDefault(); el.q.focus();
+    }
+    if (e.key === 'Tab' && !el.drawer.hidden) {
+      const f = el.drawer.querySelectorAll('button, a[href]');
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  // ---------- menu compacto (celular) ----------
+  const mnav = $('.mnav');
+  if (mnav) {
+    mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mnav.open = false; }));
+    document.addEventListener('click', e => { if (mnav.open && !mnav.contains(e.target)) mnav.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') mnav.open = false; });
+  }
+
+  // ---------- tema (claro por padrão) ----------
+  const themeBtn = $('#theme');
+  const syncTheme = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    themeBtn.setAttribute('aria-pressed', String(dark));
+    const [label, title] = dark ? T.themeOn : T.themeOff;
+    themeBtn.setAttribute('aria-label', label);
+    themeBtn.title = title;
+  };
+  themeBtn.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    if (dark) document.documentElement.dataset.theme = 'dark'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('goats-theme', dark ? 'dark' : 'light'); } catch (e) { /* sem armazenamento */ }
+    syncTheme();
+  });
+  syncTheme();
+
+  mount();
+  render();
+  const m = location.hash.match(/^#m\/(.+)$/);
+  if (m && BY_ID[m[1]]) openSport(m[1]);
+})();

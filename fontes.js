@@ -1,0 +1,103 @@
+(() => {
+  'use strict';
+  const LANG = /^en/i.test(document.documentElement.lang) ? 'en' : 'pt';
+  const STR = {
+    pt: {
+      locale: 'pt-BR', home: './',
+      fam: { coletivos: 'Coletivos', raquete: 'Raquete', atletismo: 'Atletismo', aquaticos: 'Aquáticos', combate: 'Combate', forca: 'Força', resistencia: 'Resistência', precisao: 'Precisão', acrobacia: 'Acrobacia & arte', motor: 'Motor', radicais: 'Radicais & ciclismo', inverno: 'Inverno', paralimpicos: 'Paralímpicos', mente: 'Mente', esports: 'eSports' },
+      gender: { M: 'Masculino', F: 'Feminino', X: 'Aberto' },
+      check: { 0: 'Sem pesquisa prévia', 1: 'Checagem baixa', 2: 'Checagem média', 3: 'Checagem alta' },
+      general: 'Pesquisa em mecanismos de busca, sites e listas diversas',
+      empty: ['Nada encontrado', 'Tente outro termo.'], sports: 'modalidades',
+      themeOn: 'Ativar modo claro', themeOff: 'Ativar modo escuro',
+    },
+    en: {
+      locale: 'en', home: './',
+      fam: { coletivos: 'Team sports', raquete: 'Racket', atletismo: 'Athletics', aquaticos: 'Water sports', combate: 'Combat', forca: 'Strength', resistencia: 'Endurance', precisao: 'Precision', acrobacia: 'Acrobatics & art', motor: 'Motorsport', radicais: 'Action & cycling', inverno: 'Winter', paralimpicos: 'Paralympic', mente: 'Mind', esports: 'Esports' },
+      gender: { M: 'Men', F: 'Women', X: 'Open' },
+      check: { 0: 'No prior research', 1: 'Fact-check: low', 2: 'Fact-check: medium', 3: 'Fact-check: high' },
+      general: 'Research across search engines, websites and assorted lists',
+      empty: ['Nothing found', 'Try another term.'], sports: 'sports',
+      themeOn: 'Switch to light mode', themeOff: 'Switch to dark mode',
+    },
+  };
+  const T = STR[LANG];
+  const EN = LANG === 'en' ? (window.GOAT_EN || {}) : null;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const norm = (s) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+  const nf = new Intl.NumberFormat(T.locale);
+  const localize = (s) => {
+    if (!EN) return s;
+    const t = EN.sports && EN.sports[s.id] || {};
+    return { ...s, sport: t.s || (EN.names && EN.names[s.sport]) || s.sport, label: t.l !== undefined ? t.l : (EN.labels && EN.labels[s.label]) || s.label };
+  };
+  const sports = window.GOAT_DATA.sports.map(localize);
+  const list = document.getElementById('src-list');
+  const total = document.getElementById('src-total');
+  const q = document.getElementById('sq');
+
+  const ltitle = (t) => EN ? t.replace(/^Wikipédia \(EN\): /, 'Wikipedia: ').replace(/^Wikipédia \(PT\): /, 'Wikipedia (Portuguese): ').replace(/Wikipédia/g, 'Wikipedia') : t;
+  const card = (s) => {
+    const tag = s.label || T.gender[s.gender];
+    const links = (s.links || []).length
+      ? `<ol class="links">${s.links.map((l) => `<li><a href="${esc(l.u)}" target="_blank" rel="noopener"><span>${esc(ltitle(l.t))}</span><small>${esc(host(l.u))}</small></a></li>`).join('')}</ol>`
+      : `<p class="muted src-note">${esc(EN ? T.general : (s.sourcesNote || T.general))}</p>`;
+    return `<article class="src-card" id="${s.id}" style="--fc:var(--f-${s.family})">
+      <header><span class="dot"></span><h3><a href="${T.home}#m/${s.id}">${esc(s.sport)}</a></h3><span class="gtag">${esc(tag)}</span>
+        <span class="meter" data-v="${s.status}" title="${T.check[s.status]}" aria-label="${T.check[s.status]}"><i></i><i></i><i></i></span></header>
+      ${links}</article>`;
+  };
+
+  function render() {
+    const toks = norm(q.value).split(/\s+/).filter(Boolean);
+    const match = (s) => {
+      const t = norm([s.sport, s.label, T.gender[s.gender], ...(s.links || []).map((l) => l.t + ' ' + host(l.u))].join(' '));
+      return toks.every((k) => t.includes(k));
+    };
+    let shown = 0, nLinks = 0;
+    list.innerHTML = Object.entries(T.fam).map(([k, label]) => {
+      const items = sports.filter((s) => s.family === k && match(s))
+        .sort((a, b) => a.sport.localeCompare(b.sport, T.locale) || a.gender.localeCompare(b.gender));
+      if (!items.length) return '';
+      shown += items.length; nLinks += items.reduce((n, s) => n + (s.links || []).length, 0);
+      return `<section class="src-group"><h2 style="--fc:var(--f-${k})"><span class="dot"></span>${label}</h2><div class="src-grid">${items.map(card).join('')}</div></section>`;
+    }).join('') || `<div class="empty"><h3>${T.empty[0]}</h3><p>${T.empty[1]}</p></div>`;
+    total.innerHTML = `<strong>${nf.format(shown)}</strong> ${T.sports} · <strong>${nf.format(nLinks)}</strong> links`;
+  }
+  q.addEventListener('input', render);
+  render();
+
+  const focusHash = () => {
+    const el = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (!el) return;
+    el.scrollIntoView({ block: 'center', behavior: 'instant' });
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+  };
+  window.addEventListener('hashchange', focusHash);
+  requestAnimationFrame(focusHash);
+  window.addEventListener('load', () => setTimeout(focusHash, 50));
+
+  // menu compacto (celular)
+  const mnav = document.querySelector('.mnav');
+  if (mnav) {
+    mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mnav.open = false; }));
+    document.addEventListener('click', e => { if (mnav.open && !mnav.contains(e.target)) mnav.open = false; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') mnav.open = false; });
+  }
+
+  // tema (claro por padrão)
+  const btn = document.getElementById('theme');
+  const sync = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    btn.setAttribute('aria-pressed', String(dark));
+    btn.setAttribute('aria-label', dark ? T.themeOn : T.themeOff);
+  };
+  btn.addEventListener('click', () => {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    if (dark) document.documentElement.dataset.theme = 'dark'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('goats-theme', dark ? 'dark' : 'light'); } catch (e) { /* sem armazenamento */ }
+    sync();
+  });
+  sync();
+})();

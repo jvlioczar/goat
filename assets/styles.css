@@ -402,6 +402,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .src-card.flash { animation: flash 1.6s ease-out; }
 @keyframes flash { 0%, 40% { box-shadow: 0 0 0 3px var(--primary); } 100% { box-shadow: var(--shadow); } }
 @media (max-width: 640px) { .src-grid { columns: 1; } .src-total { margin-left: 0; } }
+.recs { margin-top: 80px; }
+.rec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 12px; }
+.rec-card { display: flex; align-items: center; gap: 14px; background: var(--card); border-radius: var(--r); box-shadow: var(--shadow); padding: 18px; color: var(--ink); text-decoration: none; transition: transform .15s; }
+.rec-card:hover { transform: translateY(-2px); }
+.rec-ico { font-size: 32px; line-height: 1; }
+.rec-card strong { display: block; font: 800 19px/1.2 var(--head); }
+.rec-card small { display: block; color: var(--ink-2); font-size: 14px; margin-top: 3px; }
+.foot-rec { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 18px 0; }
+.foot-rec a { text-decoration: none; background: var(--primary-soft); color: var(--primary); font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.foot-rec a:hover { filter: brightness(.96); }
 .footer { margin-top: 80px; padding: 28px 0 40px; border-top: 1px solid var(--line); font-size: 14px; }
 .footer p { margin: 4px 0; }
 .footer .credit { margin-top: 14px; color: var(--muted); }
@@ -446,3 +456,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* a Superbar rola junto com a página e fica abaixo do painel de detalhes */
+.bvbar { position: relative !important; z-index: 30 !important; }

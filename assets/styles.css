@@ -135,7 +135,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @keyframes bob { 50% { transform: translateY(-6px) rotate(-1deg); } }
 .badge { position: absolute; z-index: 2; display: flex; flex-direction: column; color: #fff; padding: 10px 16px; border-radius: 16px; box-shadow: var(--shadow); line-height: 1.1; }
 .badge strong { font: 900 24px/1 var(--head); }
-.badge span { font-size: 13px; font-weight: 600; opacity: .95; }
+.badge span { font-size: 13px; font-weight: 600; }
 .b1 { background: var(--f-coletivos); top: 6%; left: 0; transform: rotate(-5deg); }
 .b2 { background: #5B3FD6; top: 58%; right: -24px; transform: rotate(4deg); }
 .b3 { background: var(--f-precisao); bottom: 14%; left: 2%; transform: rotate(-3deg); }
@@ -150,7 +150,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .fam:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--fc) 35%, transparent); }
 .fam strong { font: 800 17px/1.1 var(--head); }
-.fam small { font-size: 13px; font-weight: 600; opacity: .9; }
+.fam small { font-size: 13px; font-weight: 600; }
 .fam .fi-ico { position: absolute; right: -6px; top: -6px; width: 64px; height: 64px; opacity: .22; stroke-width: 1.6; }
 .fam[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--bg), 0 0 0 6px var(--fc); }
 
@@ -302,7 +302,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .d-head .fi-ico { position: absolute; right: -14px; bottom: -18px; width: 150px; height: 150px; opacity: .16; stroke-width: 1.4; }
 .d-close { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.22); color: #fff; display: grid; place-items: center; }
 .d-close:hover { background: rgba(255,255,255,.34); }
-.d-kicker { font-size: 13px; font-weight: 700; opacity: .9; display: flex; gap: 8px; align-items: center; }
+.d-kicker { font-size: 13px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
 .d-head h2 { font-size: 34px; font-weight: 900; margin: 6px 0 18px; padding-right: 40px; }
 .d-goats { display: grid; gap: 8px; }
 .d-goat { display: flex; align-items: center; gap: 12px; background: #fff; color: #17151F; border-radius: 16px; padding: 10px 14px; }

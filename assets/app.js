@@ -371,6 +371,7 @@
       </div>`;
     if (el.drawer.hidden) lastFocus = document.activeElement;
     el.drawer.hidden = false; el.scrim.hidden = false; document.body.classList.add('locked');
+    el.drawer.removeAttribute('aria-label'); el.drawer.setAttribute('aria-labelledby', 'd-title');
     el.drawer.scrollTop = 0;
     el.drawer.querySelector('.d-close').focus({ preventScroll: true });
     if (location.hash !== '#m/' + id) history.replaceState(null, '', location.pathname + location.search + '#m/' + id);

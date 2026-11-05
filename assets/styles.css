@@ -21,21 +21,21 @@
   --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* famílias */
-  --f-coletivos: #F26B1D;
+  --f-coletivos: #C2500F;
   --f-raquete: #5B3FD6;
-  --f-atletismo: #E0367C;
-  --f-aquaticos: #1A86D8;
+  --f-atletismo: #C42A6A;
+  --f-aquaticos: #1570B8;
   --f-combate: #D23B3B;
   --f-forca: #9A5B2A;
-  --f-precisao: #0E8A5F;
+  --f-precisao: #0B7A54;
   --f-acrobacia: #A447D1;
   --f-motor: #34324A;
-  --f-radicais: #D99A0B;
-  --f-inverno: #2BA3C4;
+  --f-radicais: #9A6800;
+  --f-inverno: #187894;
   --f-mente: #5F6683;
   --f-esports: #3953D6;
-  --f-resistencia: #5E8C2F;
-  --f-paralimpicos: #00897B;
+  --f-resistencia: #4E7A22;
+  --f-paralimpicos: #00796D;
 
   /* níveis */
   --t-goats: #F5B700;
@@ -52,7 +52,7 @@
   --bg: #111017; --card: #1B1A23; --card-2: #22212C; --ink: #F3F2F8; --ink-2: #D6D4E2; --muted: #A09DB2;
   --line: #2D2B3A; --primary: #8B74FF; --primary-soft: #2A2547; --gold-soft: #3A3115;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-  --f-motor: #6C6A88; --f-mente: #8A91AE; --t-legends: #8B74FF; --t-greats: #93A0BA;
+  --f-motor: #6C6A88; --f-mente: #646B89; --t-legends: #8B74FF; --t-greats: #93A0BA;
   color-scheme: dark;
 }
 
@@ -129,7 +129,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .quick span { color: var(--muted); font-size: 14px; align-self: center; margin-right: 2px; }
 .quick button { border: 0; background: var(--primary-soft); color: var(--primary); font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
 .quick button:hover { filter: brightness(.96); }
-
+:root[data-theme="dark"] .quick button, :root[data-theme="dark"] .foot-rec a { color: #A99BFF; }
 .hero-art { position: relative; display: grid; place-items: center; min-height: 320px; }
 .goat { position: relative; width: min(300px, 100%); height: auto; animation: bob 5s ease-in-out infinite; }
 @keyframes bob { 50% { transform: translateY(-6px) rotate(-1deg); } }
@@ -137,7 +137,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .badge strong { font: 900 24px/1 var(--head); }
 .badge span { font-size: 13px; font-weight: 600; opacity: .95; }
 .b1 { background: var(--f-coletivos); top: 6%; left: 0; transform: rotate(-5deg); }
-.b2 { background: var(--primary); top: 58%; right: -24px; transform: rotate(4deg); }
+.b2 { background: #5B3FD6; top: 58%; right: -24px; transform: rotate(4deg); }
 .b3 { background: var(--f-precisao); bottom: 14%; left: 2%; transform: rotate(-3deg); }
 
 /* ---------- famílias ---------- */
@@ -416,6 +416,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .footer p { margin: 4px 0; }
 .footer .credit { margin-top: 14px; color: var(--muted); }
 .footer .credit a { color: var(--ink); font-weight: 700; }
+.footer .legal { margin-top: 6px; color: var(--muted); font-size: 13px; }
+.footer .legal a { color: inherit; }
+
+/* páginas de texto (privacidade, 404) */
+.legal-page { margin-top: 32px; max-width: 760px; }
+.legal-page h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 900; }
+.legal-page h2 { font-size: 22px; font-weight: 800; margin: 32px 0 8px; }
+.legal-page p, .legal-page li { color: var(--ink-2); line-height: 1.6; }
+.legal-page ul { padding-left: 20px; }
+.legal-page li { margin: 6px 0; }
+.legal-page a { color: var(--primary); }
+.legal-page code { font-size: .9em; background: var(--primary-soft); padding: 1px 5px; border-radius: 6px; }
 
 /* ---------- responsivo ---------- */
 @media (max-width: 900px) {
@@ -459,3 +471,20 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* a Superbar rola junto com a página e fica abaixo do painel de detalhes */
 .bvbar { position: relative !important; z-index: 30 !important; }
+
+/* ---------- impressão ---------- */
+@media print {
+  :root, :root[data-theme="dark"] { --bg: #fff; --card: #fff; --ink: #000; --ink-2: #222; --muted: #555; --line: #ccc; }
+  body { background: #fff !important; color: #000; }
+  .bvbar, .skip, .topnav, .mnav, .theme-btn, .lang, .toolbar, .result-actions, .more, .quick, .search,
+  .hero-art, .families-wrap, .recs, .foot-rec, .scrim, .src-tools { display: none !important; }
+  .card, .src-card, .check-card { box-shadow: none !important; border: 1px solid #ccc; break-inside: avoid; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  a { color: #000; text-decoration: none; }
+  .legal-page a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; color: #555; word-break: break-all; }
+  /* com o card de uma modalidade aberto, imprime só ele */
+  body.locked > :not(.drawer) { display: none !important; }
+  body.locked .drawer { position: static; width: auto; max-height: none; box-shadow: none; overflow: visible; animation: none; }
+  .footer { margin-top: 24px; }
+}
+.noscript { background: var(--gold-soft); color: var(--ink); border-radius: var(--r); padding: 12px 16px; margin: 0 0 16px; font-size: 15px; }

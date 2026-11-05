@@ -32,12 +32,14 @@
     const t = EN.sports && EN.sports[s.id] || {};
     return { ...s, sport: t.s || (EN.names && EN.names[s.sport]) || s.sport, label: t.l !== undefined ? t.l : (EN.labels && EN.labels[s.label]) || s.label };
   };
-  const sports = window.GOAT_DATA.sports.map(localize);
   const list = document.getElementById('src-list');
+  // páginas simples (privacidade, 404) usam só o menu e o tema daqui
+  if (list && window.GOAT_DATA) {
+  const sports = window.GOAT_DATA.sports.map(localize);
   const total = document.getElementById('src-total');
   const q = document.getElementById('sq');
 
-  const ltitle = (t) => EN ? t.replace(/^Wikipédia \(EN\): /, 'Wikipedia: ').replace(/^Wikipédia \(PT\): /, 'Wikipedia (Portuguese): ').replace(/Wikipédia/g, 'Wikipedia') : t;
+  const ltitle = (t) => EN ? t.replace(/^Wikipédia \(EN\): /, 'Wikipedia: ').replace(/^Wikipédia \(PT\): /, 'Wikipedia (Portuguese): ').replace(/Wikipédia/g, 'Wikipedia').replace(' (cópia arquivada)', ' (archived copy)') : t;
   const card = (s) => {
     const tag = s.label || T.gender[s.gender];
     const links = (s.links || []).length
@@ -77,6 +79,7 @@
   window.addEventListener('hashchange', focusHash);
   requestAnimationFrame(focusHash);
   window.addEventListener('load', () => setTimeout(focusHash, 50));
+  }
 
   // menu compacto (celular)
   const mnav = document.querySelector('.mnav');

@@ -37,7 +37,7 @@
 {"@context":"https://schema.org","@graph":[
  {"@type":"WebSite","@id":"https://goat.biblioverse.org/#website","url":"https://goat.biblioverse.org/","name":"GOATs","alternateName":"GOATs — the greatest athletes of all time","inLanguage":["pt-BR","en"],"author":{"@id":"https://goat.biblioverse.org/#author"},"publisher":{"@id":"https://goat.biblioverse.org/#author"}},
  {"@type":"Person","@id":"https://goat.biblioverse.org/#author","name":"Julio Cesar Prava","url":"https://linkedin.com/in/juliocesarprava","sameAs":["https://linkedin.com/in/juliocesarprava"]},
- {"@type":"CollectionPage","@id":"https://goat.biblioverse.org/en/#webpage","url":"https://goat.biblioverse.org/en/","name":"Who is the greatest athlete of all time in every sport?","description":"GOATs, legends, stars and prospects of 300+ sports, with sources and a fact-check level for each list.","inLanguage":"en","isPartOf":{"@id":"https://goat.biblioverse.org/#website"},"primaryImageOfPage":"https://goat.biblioverse.org/og-image-en.png","dateModified":"2026-10-19"}
+ {"@type":"CollectionPage","@id":"https://goat.biblioverse.org/en/#webpage","url":"https://goat.biblioverse.org/en/","name":"Who is the greatest athlete of all time in every sport?","description":"GOATs, legends, stars and prospects of 300+ sports, with sources and a fact-check level for each list.","inLanguage":"en","isPartOf":{"@id":"https://goat.biblioverse.org/#website"},"primaryImageOfPage":"https://goat.biblioverse.org/og-image-en.png","dateModified":"2026-11-05"}
 ]}
 </script>
 <script>try { if (localStorage.getItem('goats-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}</script>
@@ -47,7 +47,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
 <script src="https://biblioverse.org/superbar.js" defer></script>
-<link rel="stylesheet" href="../assets/styles.css?v=2026-10-31-r7">
+<link rel="stylesheet" href="../assets/styles.min.css?v=2026-11-05-r13">
 </head>
 <body>
 <a class="skip" href="#explorar">Skip to content</a>
@@ -141,16 +141,17 @@
 
   <section class="explore wrap" id="explorar" aria-labelledby="explorar-title">
     <h2 class="sr" id="explorar-title">Explore sports and athletes</h2>
+    <noscript><p class="noscript">Filters, search and the sport cards need JavaScript. Without it, the list below still shows every sport with its GOAT, and the <a href="sources.html">sources</a> stay available.</p></noscript>
     <div class="toolbar" id="toolbar">
       <label class="search mini" for="q2">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input id="q2" type="search" autocomplete="off" spellcheck="false" placeholder="Search an athlete, sport or country…" aria-label="Search">
       </label>
       <div class="toolbar-row">
-        <div class="seg" id="view" role="tablist" aria-label="View">
-          <button role="tab" data-view="sports" aria-selected="true">Sports</button>
-          <button role="tab" data-view="athletes" aria-selected="false">Athletes</button>
-          <button role="tab" data-view="countries" aria-selected="false">Countries</button>
+        <div class="seg" id="view" role="group" aria-label="View">
+          <button type="button" data-view="sports" aria-pressed="true">Sports</button>
+          <button type="button" data-view="athletes" aria-pressed="false">Athletes</button>
+          <button type="button" data-view="countries" aria-pressed="false">Countries</button>
         </div>
         <div class="seg small" id="gender" role="group" aria-label="Category">
           <button data-g="" aria-pressed="true">All</button>
@@ -245,18 +246,19 @@
 </main>
 
 <footer class="wrap footer">
-  <p><strong>Last updated:</strong> <time datetime="2026-10-19">October 19, 2026</time> · <a href="sources.html">Sources</a></p>
+  <p><strong>Last updated:</strong> <time datetime="2026-11-05">November 5, 2026</time> · <a href="sources.html">Sources</a></p>
   <p class="muted">Flags show the country the athlete represented. Soviet athletes appear under the flag of the successor country. Sports that involve animal exploitation are not included.</p>
   <div class="foot-rec"><strong>Enjoyed this? Check out:</strong><a href="https://biggestclubs.biblioverse.org/en/" target="_blank" rel="noopener"><span aria-hidden="true">🏆</span> The World’s Biggest Clubs</a><a href="https://lendasdofutebolbrasileiro.biblioverse.org" target="_blank" rel="noopener"><span aria-hidden="true">⚽</span> Legends of Brazilian Football</a></div>
   <p class="credit">Project created by <a href="https://linkedin.com/in/juliocesarprava" target="_blank" rel="noopener author">Julio Cesar Prava</a>. GOATs is a special project of <a href="https://biblioverse.org" target="_blank" rel="noopener">BiblioVerse</a>.</p>
+  <p class="legal">© 2026 Julio Cesar Prava · <a href="privacy.html">Privacy policy</a></p>
 </footer>
 
 <div class="scrim" id="scrim" hidden></div>
-<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden></aside>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-title" hidden></div>
 
-<script src="../data/goats.js?v=2026-10-31-r7"></script>
-<script src="../data/en.js?v=2026-10-31-r7"></script>
-<script src="../data/novas.js?v=2026-10-31-r7"></script>
-<script src="../assets/app.js?v=2026-10-31-r7"></script>
+<script src="../data/goats.js?v=2026-11-05-r13"></script>
+<script src="../data/en.js?v=2026-11-05-r13"></script>
+<script src="../data/novas.js?v=2026-11-05-r13"></script>
+<script src="../assets/app.min.js?v=2026-11-05-r13"></script>
 </body>
 </html>

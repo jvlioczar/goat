@@ -302,7 +302,7 @@
   }
 
   function syncControls() {
-    document.querySelectorAll('#view button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === state.view)));
+    document.querySelectorAll('#view button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
     document.querySelectorAll('#gender button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.g === state.g)));
     document.querySelectorAll('[data-fam]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.fam === state.fam)));
     const fam = FAMILIES.find((f) => f.k === state.fam);

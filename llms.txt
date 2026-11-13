@@ -9,6 +9,7 @@ How to read the lists:
 - Flags show the country the athlete represented; Soviet athletes use the successor country's flag.
 - Sports that involve animal exploitation (horse racing, equestrian, rodeo, polo and similar) are deliberately excluded.
 - Project created by Julio Cesar Prava (https://linkedin.com/in/juliocesarprava), a special project of BiblioVerse (https://biblioverse.org).
+- License: the lists, texts and data are available under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). You may reuse them with credit to "GOATs, by Julio Cesar Prava (goat.biblioverse.org)".
 
 ## Pages
 - [Home, English](https://goat.biblioverse.org/en/): search and filter every sport, athlete and country; each sport opens with the GOAT and the reasoning

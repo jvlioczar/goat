@@ -1,6 +1,6 @@
 # GOATs — os maiores atletas de todos os tempos em cada esporte
 
-> Lista completa das 322 modalidades do site https://goat.biblioverse.org/ com GOAT, Lendas, Estrelas, Outros grandes nomes, Promessas, a explicação de cada escolha, o nível de checagem e as fontes. Atualizado em 2026-11-14. Países entre parênteses (códigos ISO). Esportes que envolvem exploração animal não são incluídos.
+> Lista completa das 322 modalidades do site https://goat.biblioverse.org/ com GOAT, Lendas, Estrelas, Outros grandes nomes, Promessas, a explicação de cada escolha, o nível de checagem e as fontes. Atualizado em 2026-11-14. Países entre parênteses (códigos ISO). Esportes que envolvem exploração animal não são incluídos. Licença: CC BY 4.0 — crédito "GOATs, por Julio Cesar Prava (goat.biblioverse.org)".
 
 ## Coletivos
 

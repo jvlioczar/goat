@@ -1,0 +1,379 @@
+# GOATs — the greatest athletes of all time in every sport
+
+> GOATs names the greatest athlete of all time (GOAT) in 322 sports and esports, with legends, stars, other greats and prospects for each, a short explanation of why, the sources used and a fact-check level. The site is bilingual (Brazilian Portuguese first, English at /en/). Last updated 2026-11-14.
+
+How to read the lists:
+- Each sport has one or more GOATs, then four tiers: Legends, Stars, Other greats and Prospects (2751 athlete entries in total). Some sports have no consensus GOAT and say so.
+- Athletes are judged by how much they dominated their own era, not by comparing eras directly.
+- Fact-check level: high (high-impact sources, cited and verified), medium (lower-impact sources, cited and verified), low (quick research across a few sources, not cited).
+- Flags show the country the athlete represented; Soviet athletes use the successor country's flag.
+- Sports that involve animal exploitation (horse racing, equestrian, rodeo, polo and similar) are deliberately excluded.
+- Project created by Julio Cesar Prava (https://linkedin.com/in/juliocesarprava), a special project of BiblioVerse (https://biblioverse.org).
+
+## Pages
+- [Home, English](https://goat.biblioverse.org/en/): search and filter every sport, athlete and country; each sport opens with the GOAT and the reasoning
+- [Home, Portuguese](https://goat.biblioverse.org/): the same content in Brazilian Portuguese
+- [Sources, English](https://goat.biblioverse.org/en/sources.html): every reference used, grouped by sport, with its fact-check level
+- [Fontes, Portuguese](https://goat.biblioverse.org/fontes.html): the same list in Portuguese
+- [Privacy policy](https://goat.biblioverse.org/en/privacy.html): no sign-up, no tracking cookies, no ads
+
+## Data
+- [Full list in English](https://goat.biblioverse.org/llms-full.txt): every sport with all tiers, the explanation and the sources
+- [Lista completa em português](https://goat.biblioverse.org/llms-full-pt.txt): the same in Portuguese
+- [Dataset in JSON](https://goat.biblioverse.org/data/goats.json): all sports in both languages, with country codes and sources
+
+## GOAT of each sport
+
+Format: sport — GOAT(s). Links open that sport on the site.
+
+### Team sports
+- [Women’s 3x3 Basketball](https://goat.biblioverse.org/en/#m/basquete-3x3-feminino): no consensus yet
+- [Men’s 3x3 Basketball](https://goat.biblioverse.org/en/#m/basquete-3x3-masculino): Dušan Domović Bulut
+- [Women’s American Football](https://goat.biblioverse.org/en/#m/futebol-americano-feminino): Allison Cahill
+- [Men’s American Football](https://goat.biblioverse.org/en/#m/futebol-americano-masculino): Tom Brady
+- [Women’s Australian Football](https://goat.biblioverse.org/en/#m/futebol-australiano-feminino): Erin Phillips
+- [Men’s Australian Football](https://goat.biblioverse.org/en/#m/futebol-australiano-masculino): Gary Ablett Sr.
+- [Women’s Baseball](https://goat.biblioverse.org/en/#m/beisebol-feminino): Doris Sams
+- [Men’s Baseball](https://goat.biblioverse.org/en/#m/beisebol-masculino): Babe Ruth
+- [Women’s Basketball](https://goat.biblioverse.org/en/#m/basquete-feminino): Diana Taurasi, A’ja Wilson
+- [Men’s Basketball](https://goat.biblioverse.org/en/#m/basquete-masculino): Michael Jordan, LeBron James
+- [Women’s Beach Handball](https://goat.biblioverse.org/en/#m/handebol-de-praia-feminino): no consensus yet
+- [Men’s Beach Handball](https://goat.biblioverse.org/en/#m/handebol-de-praia-masculino): no consensus yet
+- [Women’s Beach Soccer](https://goat.biblioverse.org/en/#m/futebol-de-areia-feminino): Adriele Rocha
+- [Men’s Beach Soccer](https://goat.biblioverse.org/en/#m/futebol-de-areia-masculino): João Madjer
+- [Women’s Beach Volleyball](https://goat.biblioverse.org/en/#m/volei-de-praia-feminino): Misty May-Treanor
+- [Men’s Beach Volleyball](https://goat.biblioverse.org/en/#m/volei-de-praia-masculino): Emanuel Rego
+- [Women’s Cricket](https://goat.biblioverse.org/en/#m/criquete-feminino): Ellyse Perry
+- [Men’s Cricket](https://goat.biblioverse.org/en/#m/criquete-masculino): Don Bradman, Virat Kohli
+- [Women’s Field Hockey](https://goat.biblioverse.org/en/#m/hoquei-sobre-grama-feminino): Luciana Aymar
+- [Men’s Field Hockey](https://goat.biblioverse.org/en/#m/hoquei-sobre-grama-masculino): Dhyan Chand
+- [Women’s Flag Football](https://goat.biblioverse.org/en/#m/futebol-de-bandeira-feminino): no consensus yet
+- [Men’s Flag Football](https://goat.biblioverse.org/en/#m/futebol-de-bandeira-masculino): Darrell “Housh” Doucette
+- [Women’s Floorball](https://goat.biblioverse.org/en/#m/floorball-feminino): no consensus yet
+- [Men’s Floorball](https://goat.biblioverse.org/en/#m/floorball-masculino): Mika Kohonen
+- [Women’s Football](https://goat.biblioverse.org/en/#m/futebol-feminino): Marta
+- [Men’s Football](https://goat.biblioverse.org/en/#m/futebol-masculino): Lionel Messi, Pelé
+- [Women’s Footvolley](https://goat.biblioverse.org/en/#m/futevolei-feminino): Natalia Guitler
+- [Men’s Footvolley](https://goat.biblioverse.org/en/#m/futevolei-masculino): Bello
+- [Women’s Futsal](https://goat.biblioverse.org/en/#m/futsal-feminino): Amandinha
+- [Men’s Futsal](https://goat.biblioverse.org/en/#m/futsal-masculino): Ricardinho, Falcão
+- [Women’s Gaelic Football](https://goat.biblioverse.org/en/#m/futebol-gaelico-feminino): Cora Staunton
+- [Men’s Gaelic Football](https://goat.biblioverse.org/en/#m/futebol-gaelico-masculino): Colm Cooper, Mick O’Connell
+- [Women’s Handball](https://goat.biblioverse.org/en/#m/handebol-feminino): Cristina Neagu
+- [Men’s Handball](https://goat.biblioverse.org/en/#m/handebol-masculino): Gheorghe Gruia
+- [Men’s Hurling](https://goat.biblioverse.org/en/#m/hurling-masculino): Henry Shefflin
+- [Women’s Ice Hockey](https://goat.biblioverse.org/en/#m/hoquei-no-gelo-feminino): Marie-Philip Poulin
+- [Men’s Ice Hockey](https://goat.biblioverse.org/en/#m/hoquei-no-gelo-masculino): Wayne Gretzky
+- [Men’s Kabaddi](https://goat.biblioverse.org/en/#m/kabaddi-masculino): Pardeep Narwal
+- [Men’s Kings League](https://goat.biblioverse.org/en/#m/kings-league-masculino): Kelvin Oliveira
+- [Women’s Lacrosse](https://goat.biblioverse.org/en/#m/lacrosse-feminino): Jen Adams
+- [Men’s Lacrosse](https://goat.biblioverse.org/en/#m/lacrosse-masculino): Gary Gait
+- [Women’s Netball](https://goat.biblioverse.org/en/#m/netbol-feminino): Irene van Dyk
+- [Women’s Netball](https://goat.biblioverse.org/en/#m/netball-feminino): Irene van Dyk
+- [Men’s Rugby League](https://goat.biblioverse.org/en/#m/rugby-league-masculino): Andrew Johns, Cameron Smith
+- [Women’s Rugby Union](https://goat.biblioverse.org/en/#m/rugby-feminino): Portia Woodman
+- [Men’s Rugby Union](https://goat.biblioverse.org/en/#m/rugby-masculino): Jonah Lomu
+- [Men’s Sepak Takraw](https://goat.biblioverse.org/en/#m/sepak-takraw-masculino): Suebsak Pansueb
+- [Women’s Softball](https://goat.biblioverse.org/en/#m/softbol-feminino): Lisa Fernandez
+- [Teqball](https://goat.biblioverse.org/en/#m/teqball): Ádám Blázsovics
+- [Men’s Ultimate Frisbee](https://goat.biblioverse.org/en/#m/ultimate-frisbee-masculino): Beau Kittredge
+- [Women’s Volleyball](https://goat.biblioverse.org/en/#m/volei-feminino): Regla Torres, Mireya Luis
+- [Men’s Volleyball](https://goat.biblioverse.org/en/#m/volei-masculino): Giba, Karch Kiraly
+- [Women’s Water Polo](https://goat.biblioverse.org/en/#m/polo-aquatico-feminino): Maggie Steffens
+- [Men’s Water Polo](https://goat.biblioverse.org/en/#m/polo-aquatico-masculino): Dezső Gyarmati
+
+### Racket
+- [Women’s Badminton](https://goat.biblioverse.org/en/#m/badminton-feminino): Zhang Ning
+- [Men’s Badminton](https://goat.biblioverse.org/en/#m/badminton-masculino): Lin Dan
+- [Women’s Beach Tennis](https://goat.biblioverse.org/en/#m/beach-tennis-feminino): Giulia Gasparri
+- [Men’s Beach Tennis](https://goat.biblioverse.org/en/#m/beach-tennis-masculino): no consensus yet
+- [Women’s Padel](https://goat.biblioverse.org/en/#m/padel-feminino): Carolina Navarro
+- [Men’s Padel](https://goat.biblioverse.org/en/#m/padel-masculino): Fernando Belasteguín
+- [Women’s Pickleball](https://goat.biblioverse.org/en/#m/pickleball-feminino): Anna Leigh Waters
+- [Men’s Pickleball](https://goat.biblioverse.org/en/#m/pickleball-masculino): Ben Johns
+- [Women’s Squash](https://goat.biblioverse.org/en/#m/squash-feminino): Nicol David
+- [Men’s Squash](https://goat.biblioverse.org/en/#m/squash-masculino): Jahangir Khan
+- [Women’s Table Tennis](https://goat.biblioverse.org/en/#m/tenis-de-mesa-feminino): Wang Nan
+- [Men’s Table Tennis](https://goat.biblioverse.org/en/#m/tenis-de-mesa-masculino): Ma Long
+- [Women’s Tennis](https://goat.biblioverse.org/en/#m/tenis-feminino): Serena Williams
+- [Men’s Tennis](https://goat.biblioverse.org/en/#m/tenis-masculino): Roger Federer, Novak Djokovic, Rafael Nadal
+
+### Athletics
+- [Women’s 3000 m Steeplechase](https://goat.biblioverse.org/en/#m/3000-m-com-obstaculos-feminino): no consensus yet
+- [Men’s 3000 m Steeplechase](https://goat.biblioverse.org/en/#m/3000-m-com-obstaculos-masculino): Ezekiel Kemboi
+- [Women’s 400 m](https://goat.biblioverse.org/en/#m/corrida-de-400-m-feminino): Marie-José Pérec
+- [Men’s 400 m](https://goat.biblioverse.org/en/#m/corrida-de-400-m-masculino): Michael Johnson
+- [Men’s Decathlon](https://goat.biblioverse.org/en/#m/decatlo-masculino): Ashton Eaton
+- [Women’s Discus Throw](https://goat.biblioverse.org/en/#m/lancamento-de-disco-feminino): Sandra Perković
+- [Men’s Discus Throw](https://goat.biblioverse.org/en/#m/lancamento-de-disco-masculino): Virgilijus Alekna
+- [Women’s Hammer Throw](https://goat.biblioverse.org/en/#m/lancamento-de-martelo-feminino): Anita Włodarczyk
+- [Men’s Hammer Throw](https://goat.biblioverse.org/en/#m/lancamento-de-martelo-masculino): Yuriy Sedykh
+- [Women’s Heptathlon](https://goat.biblioverse.org/en/#m/heptatlo-feminino): Jackie Joyner-Kersee, Nafissatou Thiam
+- [Women’s High Jump](https://goat.biblioverse.org/en/#m/salto-em-altura-feminino): Stefka Kostadinova, Yaroslava Mahuchikh
+- [Men’s High Jump](https://goat.biblioverse.org/en/#m/salto-em-altura-masculino): Mutaz Essa Barshim
+- [Women’s Hurdles](https://goat.biblioverse.org/en/#m/barreiras-feminino): Sydney McLaughlin-Levrone
+- [Men’s Hurdles](https://goat.biblioverse.org/en/#m/barreiras-masculino): Edwin Moses
+- [Women’s Javelin Throw](https://goat.biblioverse.org/en/#m/lancamento-de-dardo-feminino): Barbora Špotáková
+- [Men’s Javelin Throw](https://goat.biblioverse.org/en/#m/lancamento-de-dardo-masculino): Jan Železný
+- [Women’s Long Jump](https://goat.biblioverse.org/en/#m/salto-em-distancia-feminino): Jackie Joyner-Kersee
+- [Men’s Long Jump](https://goat.biblioverse.org/en/#m/salto-em-distancia-masculino): Mike Powell, Carl Lewis
+- [Women’s Long-Distance Running](https://goat.biblioverse.org/en/#m/corrida-de-fundo-feminino): Grete Waitz
+- [Men’s Long-Distance Running](https://goat.biblioverse.org/en/#m/corrida-de-fundo-masculino): Eliud Kipchoge
+- [Women’s Middle Distance (800 m & 1500 m)](https://goat.biblioverse.org/en/#m/meio-fundo-800-m-e-1500-m-feminino): Faith Kipyegon
+- [Men’s Middle Distance (800 m & 1500 m)](https://goat.biblioverse.org/en/#m/meio-fundo-800-m-e-1500-m-masculino): Hicham El Guerrouj
+- [Women’s Pole Vault](https://goat.biblioverse.org/en/#m/salto-com-vara-feminino): Yelena Isinbayeva
+- [Men’s Pole Vault](https://goat.biblioverse.org/en/#m/salto-com-vara-masculino): Armand Duplantis
+- [Women’s Race Walking](https://goat.biblioverse.org/en/#m/marcha-atletica-feminino): Liu Hong, María Pérez
+- [Men’s Race Walking](https://goat.biblioverse.org/en/#m/marcha-atletica-masculino): Robert Korzeniowski
+- [Women’s Shot Put](https://goat.biblioverse.org/en/#m/arremesso-de-peso-feminino): Natalya Lisovskaya
+- [Men’s Shot Put](https://goat.biblioverse.org/en/#m/arremesso-de-peso-masculino): Ryan Crouser
+- [Women’s Sprinting](https://goat.biblioverse.org/en/#m/corrida-de-velocidade-feminino): Florence Griffith-Joyner
+- [Men’s Sprinting](https://goat.biblioverse.org/en/#m/corrida-de-velocidade-masculino): Usain Bolt
+- [Women’s Triple Jump](https://goat.biblioverse.org/en/#m/salto-triplo-feminino): Yulimar Rojas
+- [Men’s Triple Jump](https://goat.biblioverse.org/en/#m/salto-triplo-masculino): Christian Taylor
+
+### Water sports
+- [Women’s Canoeing](https://goat.biblioverse.org/en/#m/canoagem-feminino): Birgit Fischer, Lisa Carrington
+- [Men’s Canoeing](https://goat.biblioverse.org/en/#m/canoagem-masculino): Tony Estanguet, Sebastian Brendel
+- [Women’s Cliff Diving](https://goat.biblioverse.org/en/#m/saltos-de-penhasco-feminino): Rhiannan Iffland
+- [Men’s Cliff Diving](https://goat.biblioverse.org/en/#m/saltos-de-penhasco-masculino): Gary Hunt
+- [Women’s Freediving](https://goat.biblioverse.org/en/#m/apneia-feminino): Natalia Molchanova
+- [Men’s Freediving](https://goat.biblioverse.org/en/#m/apneia-masculino): Alexey Molchanov
+- [Women’s Kitesurfing](https://goat.biblioverse.org/en/#m/kitesurf-feminino): Gisela Pulido
+- [Men’s Kitesurfing](https://goat.biblioverse.org/en/#m/kitesurf-masculino): Aaron Hadlow
+- [Women’s Open Water Swimming](https://goat.biblioverse.org/en/#m/maratona-aquatica-feminino): Ana Marcela Cunha
+- [Men’s Open Water Swimming](https://goat.biblioverse.org/en/#m/maratona-aquatica-masculino): Thomas Lurz, Florian Wellbrock
+- [Women’s Rowing](https://goat.biblioverse.org/en/#m/remo-feminino): Elisabeta Lipă
+- [Men’s Rowing](https://goat.biblioverse.org/en/#m/remo-masculino): Steve Redgrave
+- [Women’s Sailing](https://goat.biblioverse.org/en/#m/vela-feminino): Marit Bouwmeester
+- [Men’s Sailing](https://goat.biblioverse.org/en/#m/vela-masculino): Ben Ainslie
+- [Women’s Swimming](https://goat.biblioverse.org/en/#m/natacao-feminino): Katie Ledecky
+- [Men’s Swimming](https://goat.biblioverse.org/en/#m/natacao-masculino): Michael Phelps
+- [Women’s Windsurfing](https://goat.biblioverse.org/en/#m/windsurf-feminino): Sarah-Quita Offringa
+- [Men’s Windsurfing](https://goat.biblioverse.org/en/#m/windsurf-masculino): Robby Naish, Antoine Albeau
+
+### Combat
+- [Women’s Boxing](https://goat.biblioverse.org/en/#m/boxe-feminino): Katie Taylor, Claressa Shields
+- [Men’s Boxing](https://goat.biblioverse.org/en/#m/boxe-masculino): Muhammad Ali, Sugar Ray Robinson
+- [Women’s Fencing](https://goat.biblioverse.org/en/#m/esgrima-feminino): Valentina Vezzali
+- [Men’s Fencing](https://goat.biblioverse.org/en/#m/esgrima-masculino): Edoardo Mangiarotti, Aladár Gerevich
+- [Freestyle Wrestling (Freestyle)](https://goat.biblioverse.org/en/#m/luta-livre-olimpica-feminino): Kaori Icho
+- [Freestyle Wrestling (Freestyle)](https://goat.biblioverse.org/en/#m/luta-livre-olimpica-masculino): Buvaisar Saitiev
+- [Men’s Greco-Roman Wrestling](https://goat.biblioverse.org/en/#m/luta-greco-romana-masculino): Aleksandr Karelin, Mijaín López
+- [Women’s Jiu-Jitsu](https://goat.biblioverse.org/en/#m/jiu-jitsu-feminino): Beatriz Mesquita
+- [Men’s Jiu-Jitsu](https://goat.biblioverse.org/en/#m/jiu-jitsu-masculino): Marcus Almeida
+- [Women’s Judo](https://goat.biblioverse.org/en/#m/judo-feminino): Ryoko Tani
+- [Men’s Judo](https://goat.biblioverse.org/en/#m/judo-masculino): Teddy Riner
+- [Women’s Karate](https://goat.biblioverse.org/en/#m/carate-feminino): Sandra Sánchez
+- [Men’s Karate](https://goat.biblioverse.org/en/#m/carate-masculino): Rafael Aghayev
+- [Women’s Kickboxing](https://goat.biblioverse.org/en/#m/kickboxing-feminino): Anissa Meksen
+- [Men’s Kickboxing](https://goat.biblioverse.org/en/#m/kickboxing-masculino): Semmy Schilt, Ernesto Hoost
+- [Women’s MMA](https://goat.biblioverse.org/en/#m/mma-feminino): Amanda Nunes, Valentina Shevchenko
+- [Men’s MMA](https://goat.biblioverse.org/en/#m/mma-masculino): Jon Jones
+- [Women’s Muay Thai](https://goat.biblioverse.org/en/#m/muay-thai-feminino): Valentina Shevchenko
+- [Men’s Muay Thai](https://goat.biblioverse.org/en/#m/muay-thai-masculino): Samart Payakaroon
+- [Men’s Sumo](https://goat.biblioverse.org/en/#m/sumo-masculino): Hakuhō
+- [Women’s Taekwondo](https://goat.biblioverse.org/en/#m/taekwondo-feminino): no consensus yet
+- [Men’s Taekwondo](https://goat.biblioverse.org/en/#m/taekwondo-masculino): Steven López
+
+### Strength
+- [Women’s Arm Wrestling](https://goat.biblioverse.org/en/#m/queda-de-braco-feminino): Sarah Bäckman
+- [Men’s Arm Wrestling](https://goat.biblioverse.org/en/#m/queda-de-braco-masculino): John Brzenk
+- [Women’s Bodybuilding](https://goat.biblioverse.org/en/#m/fisiculturismo-feminino): Iris Kyle
+- [Men’s Bodybuilding](https://goat.biblioverse.org/en/#m/fisiculturismo-masculino): Arnold Schwarzenegger, Ronnie Coleman
+- [Women’s Powerlifting](https://goat.biblioverse.org/en/#m/powerlifting-feminino): no consensus yet
+- [Men’s Powerlifting](https://goat.biblioverse.org/en/#m/powerlifting-masculino): Ed Coan
+- [Women’s Strongman](https://goat.biblioverse.org/en/#m/strongman-feminino): Aneta Florczyk
+- [Men’s Strongman](https://goat.biblioverse.org/en/#m/strongman-masculino): Mariusz Pudzianowski
+- [Women’s Weightlifting](https://goat.biblioverse.org/en/#m/levantamento-de-peso-feminino): Li Wenwen
+- [Men’s Weightlifting](https://goat.biblioverse.org/en/#m/levantamento-de-peso-masculino): Lasha Talakhadze
+
+### Endurance
+- [Women’s CrossFit](https://goat.biblioverse.org/en/#m/crossfit-feminino): Tia-Clair Toomey
+- [Men’s CrossFit](https://goat.biblioverse.org/en/#m/crossfit-masculino): Mat Fraser
+- [Women’s Hyrox](https://goat.biblioverse.org/en/#m/hyrox-feminino): Lauren Weeks
+- [Men’s Hyrox](https://goat.biblioverse.org/en/#m/hyrox-masculino): Hunter McIntyre
+- [Women’s Modern Pentathlon](https://goat.biblioverse.org/en/#m/pentatlo-moderno-feminino): Laura Asadauskaitė
+- [Men’s Modern Pentathlon](https://goat.biblioverse.org/en/#m/pentatlo-moderno-masculino): András Balczó
+- [Women’s Orienteering](https://goat.biblioverse.org/en/#m/orientacao-feminino): Simone Niggli-Luder, Tove Alexandersson
+- [Men’s Orienteering](https://goat.biblioverse.org/en/#m/orientacao-masculino): Thierry Gueorgiou
+- [Women’s Triathlon](https://goat.biblioverse.org/en/#m/triatlo-feminino): Daniela Ryf, Chrissie Wellington
+- [Men’s Triathlon](https://goat.biblioverse.org/en/#m/triatlo-masculino): Jan Frodeno, Alistair Brownlee
+- [Women’s Ultrarunning & Trail](https://goat.biblioverse.org/en/#m/ultramaratona-e-trail-feminino): Courtney Dauwalter
+- [Men’s Ultrarunning & Trail](https://goat.biblioverse.org/en/#m/ultramaratona-e-trail-masculino): Kilian Jornet
+
+### Precision
+- [Women’s Archery](https://goat.biblioverse.org/en/#m/tiro-com-arco-feminino): Kim Soo-nyung
+- [Men’s Archery](https://goat.biblioverse.org/en/#m/tiro-com-arco-masculino): Kim Woo-jin
+- [Bowling](https://goat.biblioverse.org/en/#m/boliche): Walter Ray Williams Jr.
+- [Button Football](https://goat.biblioverse.org/en/#m/futebol-de-botao): no consensus yet
+- [Women’s Darts](https://goat.biblioverse.org/en/#m/dardos-feminino): Trina Gulliver
+- [Men’s Darts](https://goat.biblioverse.org/en/#m/dardos-masculino): Phil Taylor
+- [Women’s Golf](https://goat.biblioverse.org/en/#m/golfe-feminino): Annika Sörenstam
+- [Men’s Golf](https://goat.biblioverse.org/en/#m/golfe-masculino): Tiger Woods
+- [Women’s Pool](https://goat.biblioverse.org/en/#m/bilhar-pool-feminino): Allison Fisher
+- [Men’s Pool](https://goat.biblioverse.org/en/#m/bilhar-pool-masculino): Efren “Bata” Reyes
+- [Women’s Shooting](https://goat.biblioverse.org/en/#m/tiro-esportivo-feminino): Kim Rhode
+- [Men’s Shooting](https://goat.biblioverse.org/en/#m/tiro-esportivo-masculino): Jin Jong-oh, Vincent Hancock
+- [Women’s Snooker](https://goat.biblioverse.org/en/#m/sinuca-snooker-feminino): Reanne Evans
+- [Men’s Snooker](https://goat.biblioverse.org/en/#m/sinuca-snooker-masculino): Ronnie O’Sullivan
+- [Table Football (Foosball)](https://goat.biblioverse.org/en/#m/pebolim): Frédéric Collignon
+
+### Acrobatics & art
+- [Women’s Artistic Gymnastics](https://goat.biblioverse.org/en/#m/ginastica-artistica-feminino): Simone Biles
+- [Men’s Artistic Gymnastics](https://goat.biblioverse.org/en/#m/ginastica-artistica-masculino): Nikolai Andrianov, Kohei Uchimura
+- [Women’s Artistic Swimming](https://goat.biblioverse.org/en/#m/nado-artistico-feminino): Natalia Ishchenko, Svetlana Romashina
+- [Men’s Artistic Swimming](https://goat.biblioverse.org/en/#m/nado-artistico-masculino): Bill May
+- [Breaking](https://goat.biblioverse.org/en/#m/breaking): Menno van Gorp
+- [Women’s Diving](https://goat.biblioverse.org/en/#m/saltos-ornamentais-feminino): Fu Mingxia
+- [Men’s Diving](https://goat.biblioverse.org/en/#m/saltos-ornamentais-masculino): Greg Louganis
+- [Freestyle Football](https://goat.biblioverse.org/en/#m/futebol-freestyle): Séan Garnier
+- [Parkour](https://goat.biblioverse.org/en/#m/parkour): David Belle
+- [Women’s Rhythmic Gymnastics](https://goat.biblioverse.org/en/#m/ginastica-ritmica-feminino): Yevgeniya Kanayeva
+- [Women’s Trampoline](https://goat.biblioverse.org/en/#m/trampolim-feminino): Rosie MacLennan
+- [Men’s Trampoline](https://goat.biblioverse.org/en/#m/trampolim-masculino): Dong Dong, Ivan Litvinovich
+
+### Motorsport
+- [Dakar Rally](https://goat.biblioverse.org/en/#m/rali-dakar): Stéphane Peterhansel
+- [Drag Racing](https://goat.biblioverse.org/en/#m/drag-racing): John Force
+- [Drifting](https://goat.biblioverse.org/en/#m/drift): James Deane
+- [Endurance Racing (Le Mans)](https://goat.biblioverse.org/en/#m/endurance-le-mans): Tom Kristensen
+- [Formula 1](https://goat.biblioverse.org/en/#m/formula-1): Lewis Hamilton, Michael Schumacher
+- [Formula E](https://goat.biblioverse.org/en/#m/formula-e): Jean-Éric Vergne, Pascal Wehrlein
+- [IndyCar](https://goat.biblioverse.org/en/#m/indycar): A.J. Foyt
+- [Isle of Man TT](https://goat.biblioverse.org/en/#m/tt-da-ilha-de-man): Michael Dunlop
+- [Karting](https://goat.biblioverse.org/en/#m/kart): Mike Wilson
+- [Motocross](https://goat.biblioverse.org/en/#m/motocross): Stefan Everts
+- [MotoGP](https://goat.biblioverse.org/en/#m/motogp): Giacomo Agostini
+- [Motorcycle Trials](https://goat.biblioverse.org/en/#m/moto-trial): Toni Bou
+- [NASCAR](https://goat.biblioverse.org/en/#m/nascar): Richard Petty
+- [Rally](https://goat.biblioverse.org/en/#m/rali): Sébastien Loeb
+- [Speedway](https://goat.biblioverse.org/en/#m/speedway): Ivan Mauger, Tony Rickardsson, Bartosz Zmarzlik
+- [Superbike](https://goat.biblioverse.org/en/#m/superbike): Jonathan Rea
+
+### Action & cycling
+- [Women’s Bike Trials](https://goat.biblioverse.org/en/#m/bike-trial-feminino): Karin Moor
+- [Men’s Bike Trials](https://goat.biblioverse.org/en/#m/bike-trial-masculino): Benito Ros, Jack Carthy
+- [Women’s BMX](https://goat.biblioverse.org/en/#m/bmx-feminino): Hannah Roberts, Mariana Pajón
+- [Men’s BMX](https://goat.biblioverse.org/en/#m/bmx-masculino): Dave Mirra
+- [Chase Tag](https://goat.biblioverse.org/en/#m/chase-tag): Kyle Soderman
+- [Women’s Mountain Biking](https://goat.biblioverse.org/en/#m/mountain-bike-feminino): Gunn-Rita Dahle Flesjå
+- [Men’s Mountain Biking](https://goat.biblioverse.org/en/#m/mountain-bike-masculino): Nino Schurter
+- [Women’s Road Cycling](https://goat.biblioverse.org/en/#m/ciclismo-feminino): Marianne Vos
+- [Men’s Road Cycling](https://goat.biblioverse.org/en/#m/ciclismo-masculino): Eddy Merckx
+- [Women’s Skateboarding](https://goat.biblioverse.org/en/#m/skate-feminino): Rayssa Leal
+- [Men’s Skateboarding](https://goat.biblioverse.org/en/#m/skate-masculino): Nyjah Huston, Bob Burnquist
+- [Women’s Sport Climbing](https://goat.biblioverse.org/en/#m/escalada-feminino): Janja Garnbret
+- [Men’s Sport Climbing](https://goat.biblioverse.org/en/#m/escalada-masculino): Adam Ondra
+- [Women’s Surfing](https://goat.biblioverse.org/en/#m/surfe-feminino): Stephanie Gilmore
+- [Men’s Surfing](https://goat.biblioverse.org/en/#m/surfe-masculino): Kelly Slater
+- [Women’s Track Cycling](https://goat.biblioverse.org/en/#m/ciclismo-de-pista-feminino): Laura Kenny, Anna Meares
+- [Men’s Track Cycling](https://goat.biblioverse.org/en/#m/ciclismo-de-pista-masculino): Chris Hoy
+- [Women’s Wakeboarding](https://goat.biblioverse.org/en/#m/wakeboard-feminino): Raimi Merritt, Julia Rick
+- [Men’s Wakeboarding](https://goat.biblioverse.org/en/#m/wakeboard-masculino): Darin Shapiro
+
+### Winter
+- [Women’s Alpine Skiing](https://goat.biblioverse.org/en/#m/esqui-alpino-feminino): Mikaela Shiffrin
+- [Men’s Alpine Skiing](https://goat.biblioverse.org/en/#m/esqui-alpino-masculino): Ingemar Stenmark
+- [Women’s Biathlon](https://goat.biblioverse.org/en/#m/biatlo-feminino): Magdalena Neuner
+- [Men’s Biathlon](https://goat.biblioverse.org/en/#m/biatlo-masculino): Ole Einar Bjørndalen
+- [Women’s Bobsleigh](https://goat.biblioverse.org/en/#m/bobsled-feminino): Kaillie Humphries
+- [Men’s Bobsleigh](https://goat.biblioverse.org/en/#m/bobsled-masculino): Francesco Friedrich
+- [Women’s Cross-Country Skiing](https://goat.biblioverse.org/en/#m/esqui-cross-country-feminino): Marit Bjørgen
+- [Men’s Cross-Country Skiing](https://goat.biblioverse.org/en/#m/esqui-cross-country-masculino): Johannes Høsflot Klæbo
+- [Women’s Curling](https://goat.biblioverse.org/en/#m/curling-feminino): Jennifer Jones
+- [Men’s Curling](https://goat.biblioverse.org/en/#m/curling-masculino): Kevin Martin
+- [Women’s Figure Skating](https://goat.biblioverse.org/en/#m/patinacao-artistica-feminino): Kim Yuna
+- [Men’s Figure Skating](https://goat.biblioverse.org/en/#m/patinacao-artistica-masculino): Yuzuru Hanyu
+- [Women’s Freestyle Skiing](https://goat.biblioverse.org/en/#m/esqui-freestyle-feminino): Eileen Gu
+- [Men’s Freestyle Skiing](https://goat.biblioverse.org/en/#m/esqui-freestyle-masculino): Mikaël Kingsbury
+- [Ice Dance (Mixed)](https://goat.biblioverse.org/en/#m/danca-no-gelo): Tessa Virtue / Scott Moir
+- [Women’s Luge](https://goat.biblioverse.org/en/#m/luge-feminino): Natalie Geisenberger
+- [Men’s Luge](https://goat.biblioverse.org/en/#m/luge-masculino): Armin Zöggeler, Georg Hackl
+- [Men’s Nordic Combined](https://goat.biblioverse.org/en/#m/combinado-nordico-masculino): Eric Frenzel
+- [Pair Skating (Mixed)](https://goat.biblioverse.org/en/#m/patinacao-em-duplas): Irina Rodnina
+- [Women’s Short Track](https://goat.biblioverse.org/en/#m/short-track-feminino): Arianna Fontana
+- [Men’s Short Track](https://goat.biblioverse.org/en/#m/short-track-masculino): Viktor Ahn
+- [Women’s Skeleton](https://goat.biblioverse.org/en/#m/skeleton-feminino): Lizzy Yarnold
+- [Men’s Skeleton](https://goat.biblioverse.org/en/#m/skeleton-masculino): Martins Dukurs
+- [Women’s Ski Jumping](https://goat.biblioverse.org/en/#m/salto-de-esqui-feminino): Sara Takanashi
+- [Men’s Ski Jumping](https://goat.biblioverse.org/en/#m/salto-de-esqui-masculino): Matti Nykänen
+- [Women’s Ski Mountaineering](https://goat.biblioverse.org/en/#m/esqui-de-montanha-feminino): no consensus yet
+- [Men’s Ski Mountaineering](https://goat.biblioverse.org/en/#m/esqui-de-montanha-masculino): no consensus yet
+- [Women’s Snowboarding](https://goat.biblioverse.org/en/#m/snowboard-feminino): Chloe Kim
+- [Men’s Snowboarding](https://goat.biblioverse.org/en/#m/snowboard-masculino): Shaun White
+- [Women’s Speed Skating](https://goat.biblioverse.org/en/#m/patinacao-de-velocidade-feminino): Ireen Wüst
+- [Men’s Speed Skating](https://goat.biblioverse.org/en/#m/patinacao-de-velocidade-masculino): Sven Kramer
+
+### Paralympic
+- [Blind Football (Paralympic)](https://goat.biblioverse.org/en/#m/futebol-de-cegos-masculino): Ricardinho, Jefinho
+- [Boccia (Paralympic)](https://goat.biblioverse.org/en/#m/bocha-paralimpica): Jeong Ho-won, Dirceu Pinto
+- [Goalball (Paralympic)](https://goat.biblioverse.org/en/#m/goalball-masculino): Leomon Moreno
+- [Para Alpine Skiing (Paralympic)](https://goat.biblioverse.org/en/#m/esqui-alpino-paralimpico): Gerd Schönfelder, Reinhild Möller
+- [Para Archery (Paralympic)](https://goat.biblioverse.org/en/#m/tiro-com-arco-paralimpico): Zahra Nemati
+- [Para Athletics (Paralympic)](https://goat.biblioverse.org/en/#m/atletismo-paralimpico): Franz Nietlispach, Chantal Petitclerc
+- [Para Badminton (Paralympic)](https://goat.biblioverse.org/en/#m/badminton-paralimpico): Cheah Liek Hou
+- [Para Canoe (Paralympic)](https://goat.biblioverse.org/en/#m/canoagem-paralimpica): Curtis McGrath
+- [Para Cycling (Paralympic)](https://goat.biblioverse.org/en/#m/ciclismo-paralimpico): Sarah Storey
+- [Para Ice Hockey (Paralympic)](https://goat.biblioverse.org/en/#m/hoquei-no-gelo-paralimpico): Declan Farmer
+- [Para Judo (Paralympic)](https://goat.biblioverse.org/en/#m/judo-paralimpico): Antônio Tenório
+- [Para Nordic Skiing (Paralympic)](https://goat.biblioverse.org/en/#m/esqui-nordico-paralimpico): Ragnhild Myklebust
+- [Para Powerlifting (Paralympic)](https://goat.biblioverse.org/en/#m/halterofilismo-paralimpico): Siamand Rahman
+- [Para Swimming (Paralympic)](https://goat.biblioverse.org/en/#m/natacao-paralimpica): Trischa Zorn
+- [Para Table Tennis (Paralympic)](https://goat.biblioverse.org/en/#m/tenis-de-mesa-paralimpico): Natalia Partyka
+- [Para Triathlon (Paralympic)](https://goat.biblioverse.org/en/#m/triatlo-paralimpico): Martin Schulz, Grace Norman
+- [Sitting Volleyball (Paralympic)](https://goat.biblioverse.org/en/#m/volei-sentado-masculino): Morteza Mehrzad
+- [Women’s Wheelchair Basketball](https://goat.biblioverse.org/en/#m/basquete-em-cadeira-de-rodas-feminino): Chantal Benoit
+- [Men’s Wheelchair Basketball](https://goat.biblioverse.org/en/#m/basquete-em-cadeira-de-rodas-masculino): Patrick Anderson
+- [Wheelchair Fencing (Paralympic)](https://goat.biblioverse.org/en/#m/esgrima-em-cadeira-de-rodas): Beatrice “Bebe” Vio, Yu Chui Yee
+- [Wheelchair Rugby (Paralympic)](https://goat.biblioverse.org/en/#m/rugby-em-cadeira-de-rodas): no consensus yet
+- [Women’s Wheelchair Tennis](https://goat.biblioverse.org/en/#m/tenis-em-cadeira-de-rodas-feminino): Esther Vergeer
+- [Men’s Wheelchair Tennis](https://goat.biblioverse.org/en/#m/tenis-em-cadeira-de-rodas-masculino): Shingo Kunieda
+
+### Mind
+- [Bridge](https://goat.biblioverse.org/en/#m/bridge): Bob Hamman
+- [Checkers (English Draughts)](https://goat.biblioverse.org/en/#m/damas-inglesas-checkers): Marion Tinsley
+- [Women’s Chess](https://goat.biblioverse.org/en/#m/xadrez-feminino): Judit Polgar
+- [Men’s Chess](https://goat.biblioverse.org/en/#m/xadrez-masculino): Garry Kasparov, Magnus Carlsen
+- [Chinese Chess (Xiangqi)](https://goat.biblioverse.org/en/#m/xadrez-chines-xiangqi): Hu Ronghua
+- [Classic Tetris](https://goat.biblioverse.org/en/#m/tetris-classico): Jonas Neubauer
+- [Dominoes](https://goat.biblioverse.org/en/#m/domino): no consensus yet
+- [Women’s Draughts](https://goat.biblioverse.org/en/#m/damas-feminino): Zoja Golubeva
+- [Men’s Draughts](https://goat.biblioverse.org/en/#m/damas-masculino): Alexei Chizhov
+- [Go (Baduk or Weiqi)](https://goat.biblioverse.org/en/#m/go-baduk-ou-weiqi): Lee Chang-ho, Go Seigen
+- [Poker](https://goat.biblioverse.org/en/#m/poker): Phil Ivey, Phil Hellmuth
+- [Rummikub](https://goat.biblioverse.org/en/#m/rummikub): no consensus yet
+- [Scrabble](https://goat.biblioverse.org/en/#m/scrabble): Nigel Richards
+- [Shogi](https://goat.biblioverse.org/en/#m/shogi): Yoshiharu Habu
+- [Speedcubing](https://goat.biblioverse.org/en/#m/speedcubing): Feliks Zemdegs
+- [Typing](https://goat.biblioverse.org/en/#m/digitacao): Sean Wrona
+
+### Esports
+- [Apex Legends](https://goat.biblioverse.org/en/#m/apex-legends): no consensus yet
+- [Brawl Stars](https://goat.biblioverse.org/en/#m/brawl-stars): Tensai
+- [Call of Duty](https://goat.biblioverse.org/en/#m/call-of-duty): Ian “Crimsix” Porter
+- [Women’s Counter-Strike](https://goat.biblioverse.org/en/#m/counter-strike-feminino): Ksenia “vilga” Klyuenkova
+- [Men’s Counter-Strike](https://goat.biblioverse.org/en/#m/counter-strike-masculino): Mathieu “ZywOo” Herbaut
+- [CrossFire](https://goat.biblioverse.org/en/#m/crossfire): Wang “N9” Hao
+- [Women’s Dota 2](https://goat.biblioverse.org/en/#m/dota-2-feminino): no consensus yet
+- [Men’s Dota 2](https://goat.biblioverse.org/en/#m/dota-2-masculino): Johan “N0tail” Sundstein
+- [Dragon Ball FighterZ](https://goat.biblioverse.org/en/#m/dragon-ball-fighterz): Goichi “GO1” Kishida
+- [EA Sports FC](https://goat.biblioverse.org/en/#m/ea-sports-fc): no consensus yet
+- [Fortnite](https://goat.biblioverse.org/en/#m/fortnite): Kyle “Bugha” Giersdorf
+- [Free Fire](https://goat.biblioverse.org/en/#m/free-fire): no consensus yet
+- [GeoGuessr](https://goat.biblioverse.org/en/#m/geoguessr): no consensus yet
+- [Honor of Kings](https://goat.biblioverse.org/en/#m/honor-of-kings): Peng “Fly” Yunfei
+- [Women’s League of Legends](https://goat.biblioverse.org/en/#m/league-of-legends-feminino): no consensus yet
+- [Men’s League of Legends](https://goat.biblioverse.org/en/#m/league-of-legends-masculino): Lee “Faker” Sang-hyeok
+- [Mobile Legends](https://goat.biblioverse.org/en/#m/mobile-legends): no consensus yet
+- [Overwatch](https://goat.biblioverse.org/en/#m/overwatch): Park “Profit” Joon-yeong
+- [PUBG Mobile](https://goat.biblioverse.org/en/#m/pubg-mobile): no consensus yet
+- [Rainbow Six Siege](https://goat.biblioverse.org/en/#m/rainbow-six-siege): Niclas “Pengu” Mouritzen
+- [Rocket League](https://goat.biblioverse.org/en/#m/rocket-league): Alexandre “Kaydop” Courant, Pierre “Turbopolsa” Silfver
+- [Sim Racing](https://goat.biblioverse.org/en/#m/automobilismo-virtual-sim-racing): Jarno Opmeer
+- [StarCraft](https://goat.biblioverse.org/en/#m/starcraft): Lee “Flash” Young-ho
+- [Street Fighter](https://goat.biblioverse.org/en/#m/street-fighter): Daigo Umehara
+- [Super Smash Bros.](https://goat.biblioverse.org/en/#m/super-smash-bros): Joseph “Mang0” Marquez, Leonardo “MkLeo” López
+- [Tekken](https://goat.biblioverse.org/en/#m/tekken): Arslan Ash
+- [Valorant (Inclusive)](https://goat.biblioverse.org/en/#m/valorant-feminino-inclusivo-game-changers): Ava “florescent” Eugene
+- [Valorant (Mixed)](https://goat.biblioverse.org/en/#m/valorant): Erick “aspas” Santos

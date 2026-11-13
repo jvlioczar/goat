@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://goat.biblioverse.org/sitemap.xml
+
+# Resumo para assistentes de IA / summary for AI assistants: https://goat.biblioverse.org/llms.txt
